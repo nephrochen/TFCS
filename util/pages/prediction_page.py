@@ -11,7 +11,7 @@ import plotly
 import copy
 import matplotlib.pyplot as plt
 import joblib
-import xgboost as xgb
+#import xgboost as xgb
 
 feature_mapping = {
     'smoker': "Smoking status",
