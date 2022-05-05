@@ -18,7 +18,7 @@
 
 import numpy as np
 import matplotlib as mpl
-import seaborn as sns
+#import seaborn as sns
 
 from .table import make_dict
 from .lst import move_end_lst
