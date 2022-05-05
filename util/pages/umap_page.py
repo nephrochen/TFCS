@@ -2,7 +2,12 @@ import streamlit as st
 
 
 import pandas as pd
-import plotly.express as px
+import plotly
+plotly.__version__
+
+
+import plotly.graph_objects as go
+import numpy as np
 from ..functions.path import get_file_path, pages_str, data_str, get_dir_name
 from util.functions.path import get_file_path, get_dir_name, util_str, data_str
 
@@ -47,8 +52,6 @@ def umap_page():
     for e, classname in enumerate(sorted( list(set(umap_org[select_color]).union(set(umap_rep[select_color]))) ) ) :
         color_discrete_map[classname] = color_discrete_map_list[e%10] 
 
-    import plotly.graph_objects as go
-    import numpy as np
 
     col1, col2 = st.columns(2)
     with col1:
