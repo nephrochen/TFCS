@@ -6,7 +6,6 @@ import re
 from random import randint
 import streamlit as st
 #import py3Dmol
-from stmol import showmol
 from io import BytesIO
 
 from .file import entry_table_file
@@ -28,20 +27,6 @@ from .col import (rename_col_dict, date_col, nuc_class_col, match_class_col, pro
                 gene_class_col, interf_class_col, pocket_class_col, pdb_code_col, chainid_col, ion_lig_col, 
                 bound_prot_chainid_col, pharm_lig_col, mem_lig_col, pharm_class_col)
 
-from ..constants.nuc import nuc_class_lst
-from ..constants.pharm import match_class_lst, pocket_class_lst, pharm_color_dict, none_pharm_name, other_pharm_name, sp2_name
-from ..constants.prot import prot_class_lst, prot_color_dict, none_prot_name, other_prot_name
-from ..constants.conf import sw1_name_lst, sw2_name_lst, y32_name_lst, y71_name_lst, y32_name, y71_name, sw1_name, sw2_name, loop_resid_dict, loop_color_dict
-from ..constants.gene import gene_class_lst
-from ..constants.dimer import interf_class_lst
-
-class_order_dict = {nuc_class_col: nuc_class_lst, match_class_col: match_class_lst, pocket_class_col: pocket_class_lst,
-                    prot_class_col: prot_class_lst, sw1_name: sw1_name_lst, sw2_name: sw2_name_lst,
-                    y32_name: y32_name_lst, y71_name: y71_name_lst,
-                    gene_class_col: gene_class_lst, interf_class_col: interf_class_lst}
-
-sw1_resid_lst = res_to_lst(loop_resid_dict[sw1_name])
-sw2_resid_lst = res_to_lst(loop_resid_dict[sw2_name])
 
 mitch_twitter = '<a href="https://twitter.com/Mitch_P?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Mitch_P</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
 roland_twitter = '<a href="https://twitter.com/RolandDunbrack?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @RolandDunbrack</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
@@ -51,28 +36,6 @@ ribbon_name = "Ribbon"
 trace_name = "Trace"
 standard_name = "Standard"
 aa_name = "Amino Acid"
-
-def write_st_end():
-
-    df = load_table(
-        get_file_path(
-            entry_table_file,
-            dir_path=get_neighbor_path(__file__, functions_str, data_str),
-        )
-    )
-
-    df[date_col] = pd.to_datetime(df[date_col])
-    df[date_col] = df[date_col].dt.strftime("%Y-%m")
-
-    st.markdown("---")
-    st.markdown(
-        "Developed and Maintained by Mitchell Parker, Bulat Faezov, and Roland Dunbrack"
-    )
-    st.markdown(
-        "[Dunbrack Lab](https://dunbrack.fccc.edu/retro/) - [Fox Chase Cancer Center](https://www.foxchase.org)"
-    )
-    st.markdown(f"Most Recently Deposited Entry {df[date_col].max()}")
-    st.markdown("Copyright (c) 2022 Mitchell Isaac Parker")
 
 def reorder_st_cols(df, row, col):
 
@@ -245,38 +208,6 @@ def create_st_button(link_text, link_url, hover_color="#e78ac3", st_col=None):
         st.markdown(button_css + html_str, unsafe_allow_html=True)
     else:
         st_col.markdown(button_css + html_str, unsafe_allow_html=True)
-
-
-def download_st_file(file_path, file_name, download_text, st_col=None):
-
-    with open(file_path, "rb") as file:
-        if st_col is None:
-            st.download_button(download_text, file, file_name=file_name)
-        else:
-            st_col.download_button(download_text, file, file_name=file_name)
-
-
-def encode_st_df(df):
-
-    return df.to_csv(sep="\t", index=False).encode("utf-8")
-
-
-def download_st_df(df, file_name, download_text, st_col=None):
-
-    if st_col is None:
-        st.download_button(
-            label=download_text,
-            data=encode_st_df(df),
-            file_name=file_name,
-        )
-    else:
-        st_col.download_button(
-            label=download_text,
-            data=encode_st_df(df),
-            file_name=file_name,
-        )
-
-
 
 
     

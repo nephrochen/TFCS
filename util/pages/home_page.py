@@ -22,22 +22,14 @@ from PIL import Image
 from ..functions.table import mask_equal
 from ..functions.col import pdb_code_col
 from ..functions.path import pages_str, data_str, get_file_path
-from ..functions.gui import load_st_table, write_st_end, get_neighbor_path, create_st_button#, show_st_structure
+from ..functions.gui import create_st_button#, show_st_structure
 
 
 def home_page():
 
     left_col, right_col = st.columns(2)
 
-    df = load_st_table(__file__)
 
-    # show_st_structure(mask_equal(df, pdb_code_col, "6oim"),
-    #         zoom=1.2,
-    #         width=400,
-    #         height=300,
-    #         surface_trans=1,
-    #         spin_on=True,
-    #         st_col=left_col)
 
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality")
@@ -183,5 +175,3 @@ def home_page():
         Apache License 2.0
         """
     )
-
-    #write_st_end()

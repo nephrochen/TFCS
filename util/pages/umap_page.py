@@ -6,7 +6,6 @@ import plotly.express as px
 from ..functions.path import get_file_path, pages_str, data_str, get_dir_name
 from util.functions.path import get_file_path, get_dir_name, util_str, data_str
 
-from ..functions.gui import load_st_table, write_st_end, get_neighbor_path
 
 
 def umap_page():
