@@ -33,7 +33,7 @@ def home_page():
 
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality")
-    right_col.markdown("**Created by Zhihui Zhu and Chenyu Li**")
+    right_col.markdown("**Created by Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
 
     database_link_dict = {

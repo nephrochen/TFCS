@@ -2,8 +2,8 @@ import streamlit as st
 
 
 import pandas as pd
-import plotly
-plotly.__version__
+import shap
+shap.__version__
 
 
 import plotly.graph_objects as go
@@ -19,10 +19,10 @@ def umap_page():
 
 
     umap = pd.read_csv(get_file_path("umap.csv",
-                dir_path=f"{get_dir_name(__file__)}/{util_str}/{data_str}",), sep=',')
+                dir_path=f"{get_dir_name(__file__)}/{data_str}",), sep=',')
 
     umap_usp = pd.read_csv(get_file_path("umap_usp.csv",
-                dir_path=f"{get_dir_name(__file__)}/{util_str}/{data_str}",), sep=',')
+                dir_path=f"{get_dir_name(__file__)}/{data_str}",), sep=',')
 
     colorable_columns_maps ={
         'SHAP': "SHAP", 
