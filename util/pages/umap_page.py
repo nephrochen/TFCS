@@ -61,6 +61,6 @@ def umap_page():
         st.write('### Replication Cohort')
         u=umap_rep
         fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
-            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
-        fig.update_layout( showscale=True,template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis', showscale=True,  opacity=0.5))])
+        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
