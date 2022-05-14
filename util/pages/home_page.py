@@ -28,11 +28,8 @@ from ..functions.gui import create_st_button#, show_st_structure
 def home_page():
 
     left_col, right_col = st.columns(2)
-
-
-
     right_col.markdown("# TFML-CV-Score")
-    right_col.markdown("### A tool for predicting perioperative mortality")
+    right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
 
