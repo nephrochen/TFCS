@@ -50,7 +50,8 @@ def umap_page():
     for e, classname in enumerate(sorted( list(set(umap_org[select_color]).union(set(umap_rep[select_color]))) ) ) :
         color_discrete_map[classname] = color_discrete_map_list[e%10] 
 
-
+    import plotly.graph_objects as go
+    import numpy as np
 
     col1, col2 = st.columns(2)
     with col1:
@@ -68,8 +69,7 @@ def umap_page():
         # fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         # st.plotly_chart(fig, use_container_width=True)
 
-        import plotly.graph_objects as go
-        import numpy as np
+
         t = np.linspace(0, 10, 50)
         x, y, z = np.cos(t), np.sin(t), t
 
