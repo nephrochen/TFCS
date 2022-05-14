@@ -23,15 +23,15 @@ def umap_page():
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
 
     colorable_columns_maps ={
-        # 'SHAP': "SHAP", 
-        # 'dead': "dead",
+        'SHAP': "SHAP", 
+        'dead': "dead",
         'surgery': "surgery",
-        # "CBP_t":"CBP_t",
-        # "age":"age",
-        # "NYHA":"NYHA",
-        # "weight":"weight",
-        # "ef":"ef",
-        # "Crea":"Crea",
+        "CBP_t":"CBP_t",
+        "age":"age",
+        "NYHA":"NYHA",
+        "weight":"weight",
+        "ef":"ef",
+        "Crea":"Crea",
         "IABP":"IABP"
 
     }
@@ -71,10 +71,8 @@ def umap_page():
                         y=df_grade['UMAP2'].values,
                         z=df_grade['UMAP3'].values,
                     mode='markers',
-                
-                    marker=dict(
-                        opacity=0.75,
-                    ),
+                    #colorscale='Viridis',
+                    marker=dict(opacity=0.5,),
                     #name='Grade:'+str(g)
                 )
             )
@@ -85,14 +83,20 @@ def umap_page():
 
     with col1:
         st.write('### Discovery Cohort')
-        fig = go.FigureWidget(sc_dt_ct(umap_org,select_color))
+        if len(u[select_color].unique()) < 10:
+            fig = go.FigureWidget(sc_dt_ct(umap_org,select_color))
+        else:
+            fig = go.FigureWidget(sc_dt_num(umap_org,select_color))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
 
     with col2:
         st.write('### Replication Cohort')
-        fig = go.FigureWidget(sc_dt_num(umap_rep,select_color))
+        if len(u[select_color].unique()) < 10:
+            fig = go.FigureWidget(sc_dt_ct(umap_rep,select_color))
+        else:
+            fig = go.FigureWidget(sc_dt_num(umap_rep,select_color))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
