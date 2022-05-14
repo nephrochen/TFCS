@@ -51,61 +51,6 @@ def umap_page():
         color_discrete_map[classname] = color_discrete_map_list[e%10] 
 
 
-    import plotly.graph_objs as go
-    import numpy as np
-
-    data=[go.Scattergeo(
-                lat=[45.5017, 51.509865, 52.520008],
-                lon=[-73.5673, -0.118092, 13.404954 ],
-                mode='markers',
-                marker_color='red')]
-
-    layout =go.Layout(width=500, height=500,
-            title_text='Your title',
-            title_x=0.5,
-            geo=go.layout.Geo(
-                projection_type='orthographic',
-                center_lon=-180,
-                center_lat=0,
-                projection_rotation_lon=-180,
-                showland=True,
-                showcountries=True,
-                landcolor='rgb(243, 243, 243)',
-                countrycolor='rgb(204, 204, 204)'
-            ))
-
-
-    lon_range = np.arange(-180, 180, 2)
-
-    frames = [go.Frame(layout=go.Layout(geo_center_lon=lon,
-                                        geo_projection_rotation_lon =lon
-                                    ),
-                    name =f'fr{k+1}') for k, lon in enumerate(lon_range)]
-
-
-    sliders = [dict(steps = [dict(method= 'animate',
-                                args= [[f'fr{k+1}'],                           
-                                        dict(mode= 'immediate',
-                                            frame= dict(duration=10, redraw= True),
-                                            transition=dict(duration= 0))],
-                                label=f'fr{k+1}'
-                                ) for k in range(len(lon_range))], 
-                
-                    transition= dict(duration= 0 ),
-                    x=0, # slider starting position  
-                    y=0,   
-                len=1.0) #slider length
-            ]
-        
-
-
-    fig = go.Figure(data=data, layout=layout, frames=frames)
-    fig.update_layout(sliders=sliders)
-    fig.show()
-
-
-
-
 
     col1, col2 = st.columns(2)
     with col1:
@@ -122,7 +67,49 @@ def umap_page():
         #     marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
         # fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         # st.plotly_chart(fig, use_container_width=True)
-        fig = go.Figure(data=data, layout=layout, frames=frames)
-        fig.update_layout(sliders=sliders)
+
+        import plotly.graph_objects as go
+        import numpy as np
+        t = np.linspace(0, 10, 50)
+        x, y, z = np.cos(t), np.sin(t), t
+
+        fig= go.Figure(go.Scatter3d(x=x, y=y, z=z, mode='markers'))
+        x_eye = -1.25
+        y_eye = 2
+        z_eye = 0.5
+        fig.update_layout(
+                title='Animation Test',
+                width=600,
+                height=600,
+                scene_camera_eye=dict(x=x_eye, y=y_eye, z=z_eye),
+                updatemenus=[dict(type='buttons',
+                        showactive=False,
+                        y=1,
+                        x=0.8,
+                        xanchor='left',
+                        yanchor='bottom',
+                        pad=dict(t=45, r=10),
+                        buttons=[dict(label='Play',
+                                        method='animate',
+                                        args=[None, dict(frame=dict(duration=5, redraw=True), 
+                                                                    transition=dict(duration=0),
+                                                                    fromcurrent=True,
+                                                                    mode='immediate'
+                                                                    )]
+                                                    )
+                                            ]
+                                    )
+                                ]
+        )
+
+        def rotate_z(x, y, z, theta):
+            w = x+1j*y
+            return np.real(np.exp(1j*theta)*w), np.imag(np.exp(1j*theta)*w), z
+        frames=[]
+        for t in np.arange(0, 6.26, 0.1):
+            xe, ye, ze = rotate_z(x_eye, y_eye, z_eye, -t)
+            frames.append(go.Frame(layout=dict(scene_camera_eye=dict(x=xe, y=ye, z=ze))))
+        fig.frames=frames
+
         st.plotly_chart(fig, use_container_width=True)
 
