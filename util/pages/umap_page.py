@@ -19,8 +19,8 @@ def umap_page():
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
     colorable_columns_maps ={
         #'SHAP': "SHAP", 
-        'dead': "dead",
-        'surgery': "surgery",
+        #'dead': "dead",
+        #'surgery': "surgery",
         "CBP_t":"CBP_t",
         "age":"age",
         "NYHA":"NYHA",
@@ -32,7 +32,7 @@ def umap_page():
     colorable_columns = list(colorable_columns_maps) 
     colorable_columns = list(set(colorable_columns).intersection(set(list(umap.columns))))
 
-    st.sidebar.markdown("### PDB Selection")
+    st.sidebar.markdown("### Indicator Selection")
     select_color = st.sidebar.selectbox('', [colorable_columns_maps[i] for i in colorable_columns], index=0)
 
     umap = umap.rename(columns=colorable_columns_maps) 
@@ -96,7 +96,7 @@ def umap_page():
 
 
     with col1:
-        st.write('### Topological Space for surgery')
+        st.write('### Topological Space for types of surgery')
         fig = go.FigureWidget(sc_dt_num(umap,"surgery"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
