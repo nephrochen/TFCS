@@ -39,6 +39,8 @@ def umap_page():
     umap_usp = umap_usp.rename(columns=colorable_columns_maps) 
     umap_org = umap[[select_color] + ['UMAP1', 'UMAP2', 'UMAP3']].dropna()
     umap_rep = umap_usp[[select_color] + ['UMAP1', 'UMAP2', 'UMAP3']].dropna()
+    
+    
     col1, col2 = st.columns(2)
 
 
@@ -88,6 +90,38 @@ def umap_page():
         fig = go.FigureWidget(sc_dt_num(umap,"SHAP"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
+
+
+    col1, col2 = st.columns(2)
+
+
+    with col1:
+        st.write('### Topological Space for indicator')
+        fig = go.FigureWidget(sc_dt_num(umap_org,"surgery"))
+        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        st.write('### Topological Space for Mortality Risk')
+        fig = go.FigureWidget(sc_dt_num(umap_org,"dead"))
+        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+        st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
