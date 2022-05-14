@@ -54,7 +54,7 @@ def umap_page():
             marker=dict(size=3,color=u[select_color].values,colorscale='Viridis' ,  opacity=0.5), showlegend = True)])
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0),)
         fig.update_layout(showlegend=True,legend=dict(orientation="h",yanchor="bottom",xanchor="right",) )
-        fig.update_layout(legend_itemsizing ='select_color')
+        #fig.update_layout(legend_itemsizing ='select_color')
                
         st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
     with col2:
@@ -68,7 +68,8 @@ def umap_page():
                                                 color=u[select_color].values,
                                                 colorscale='Viridis',
                                                 showscale=True,  
-                                                opacity=0.5,colorbar=dict(title=select_color)))])
+                                                opacity=0.5,
+                                                colorbar=dict(title='select_color')))])
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
