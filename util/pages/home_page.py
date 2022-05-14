@@ -51,7 +51,6 @@ def home_page():
         "National Center for Cardiovascular Diseases": "https://www.nccd.org.cn/Home/English",
         "Beijing Anzhen Hospital": "https://www.anzhen.org/",
         "Fuwai Hospital": "https://www.fuwai.com/Hospitals/Main?type=4",
-        "Beijing Institute of Heart Lung and Blood Vessel Disease": "http://heartinsti.54doctor.net/News/Main?siteId=123",
     }
 
     st.sidebar.markdown("## Community-Related Links")
