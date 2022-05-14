@@ -72,7 +72,7 @@ def umap_page():
                         y=df_grade['UMAP2'].values,
                         z=df_grade['UMAP3'].values,
                     mode='markers',
-                    #colorscale='Viridis',
+                    colorscale=['#9ac9db','#c82423'],
                     marker=dict(opacity=0.5,),
                     name='Gradeafsafasfd:'+str(g)
                 )
