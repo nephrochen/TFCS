@@ -82,20 +82,14 @@ def home_page():
     st.markdown(
         """
         ### Summary
-        *Rascore* is a tool for analyzing structures of the RAS protein family
-        (KRAS, NRAS, and HRAS). The *Rascore* 
-        database presents a continually updated analysis of all available
-        RAS structures in the Protein Data Bank (PDB) with their catalytic switch 1 (SW1) 
-        and switch 2 (SW2) loops conformationally classified and their molecular 
-        contents annotated (e.g., mutation status, nucleotide state, 
-        bound protein, inhibitor site). 
+        *TFML-score*is a tool for predicting perioperative mortality of 
+        combined valve surgery and CABG. 
+        TFML-score database presents an analysis of 多少个特殊指标的
+        map structures和Individualized mortality prediction for patients. 
 
-        Details of our work are 
-        provided on [bioRxiv](https://www.biorxiv.org/content/10.1101/2022.02.02.478568v2) in the manuscript, 
-        **Defining An Expanded RAS Conformational Landscape Based on Over 700 Experimentally 
-        Determined Structures of KRAS, NRAS, and HRAS.** We hope that researchers will use 
-        *Rascore* to gain novel insights into RAS biology and 
-        drug discovery. 
+        Details of our work are provided on *** in the pre-print manuscript.
+        We hope that researchers and physicians will use TFML-score to gain novel insights 
+        into combined valve surgery and CABG and perioperative management. 
         """
     )
 
