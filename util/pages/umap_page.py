@@ -87,7 +87,7 @@ def umap_page():
                         marker=dict(size=3,
                         color=u[select_color].values,
                         #colorscale='Viridis',
-                        colorscale=['#9ac9db','#c82423'],
+                        colorscale=[[0,'#9ac9db'],[1,'#c82423']],
                         showscale=True,  
                         opacity=0.5,
                         colorbar=dict(title=str(select_color))))]
@@ -109,8 +109,7 @@ def umap_page():
 
     with col2:
         st.write('### Replication Cohort')
-        if len(g) < 10: fig = go.FigureWidget(sc_dt_ct(umap_rep,select_color))
-        else: fig = go.FigureWidget(sc_dt_num(umap_rep,select_color))
+        fig = go.FigureWidget(sc_dt_num(umap_rep,"SHAP"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
