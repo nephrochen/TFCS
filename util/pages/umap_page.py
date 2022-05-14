@@ -15,15 +15,10 @@ from util.functions.path import get_file_path, get_dir_name, util_str, data_str
 
 def umap_page():
     st.write("## Topological Space for ALS Subtypes using Semi-supervised Approach")
-
-
-
     umap = pd.read_csv("/app/tfcs/util/data/umap.csv", sep=',')
-
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
-
     colorable_columns_maps ={
-        'SHAP': "SHAP", 
+        #'SHAP': "SHAP", 
         'dead': "dead",
         'surgery': "surgery",
         "CBP_t":"CBP_t",
@@ -33,7 +28,6 @@ def umap_page():
         "ef":"ef",
         "Crea":"Crea",
         "IABP":"IABP"
-
     }
     colorable_columns = list(colorable_columns_maps) 
     colorable_columns = list(set(colorable_columns).intersection(set(list(umap.columns))))
@@ -71,9 +65,12 @@ def umap_page():
                         color=u[select_color].values,
                         #colorscale='Viridis',
                         colorscale=[[0,'#9ac9db'],[1,'#c82423']],
+                        colorbar = dict(thickness=25, 
+                tickvals=[.9,1.9,2.9], 
+                ticktext=["CABG","V","CC","CCa"],
+                title=str(select_color)),
                         showscale=True,  
-                        opacity=0.5,
-                        colorbar=dict(title=str(select_color))))]
+                        opacity=0.5))]
         return data     
 
 
