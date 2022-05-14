@@ -62,23 +62,6 @@ def umap_page():
                         colorbar=dict(title=str(select_color))))]
         return data     
 
-    # def sc_dt_ct(u,select_color):
-    #     grades=sorted(u[select_color].unique())
-    #     data=[]
-    #     for g in grades:
-    #         df_grade=u[u[select_color]==g]
-    #         data.append(
-    #             go.Scatter3d(x=df_grade['UMAP1'].values, 
-    #                     y=df_grade['UMAP2'].values,
-    #                     z=df_grade['UMAP3'].values,
-    #                 mode='markers',
-    #                 colorscale=['#9ac9db','#c82423'],
-    #                 marker=dict(opacity=0.5,),
-    #                 name='Gradeafsafasfd:'+str(g)
-    #             )
-    #         )
-    #     return data
-        
     def sc_dt_ct(u,select_color):
         data=[go.Scatter3d(x=u['UMAP1'].values, 
                         y=u['UMAP2'].values,
@@ -109,7 +92,7 @@ def umap_page():
 
     with col2:
         st.write('### Replication Cohort')
-        fig = go.FigureWidget(sc_dt_num(umap_rep,"SHAP"))
+        fig = go.FigureWidget(sc_dt_num(umap,"SHAP"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
@@ -126,3 +109,20 @@ def umap_page():
         # st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
 
 
+    # def sc_dt_ct(u,select_color):
+    #     grades=sorted(u[select_color].unique())
+    #     data=[]
+    #     for g in grades:
+    #         df_grade=u[u[select_color]==g]
+    #         data.append(
+    #             go.Scatter3d(x=df_grade['UMAP1'].values, 
+    #                     y=df_grade['UMAP2'].values,
+    #                     z=df_grade['UMAP3'].values,
+    #                 mode='markers',
+    #                 colorscale=['#9ac9db','#c82423'],
+    #                 marker=dict(opacity=0.5,),
+    #                 name='Gradeafsafasfd:'+str(g)
+    #             )
+    #         )
+    #     return data
+        
