@@ -80,23 +80,23 @@ def prediction_page():
             if (i+0) >= len(categorical_columns):
                 continue
             c1 = categorical_columns[i+0] 
-            f1 = st.selectbox()
+            f1 = st.selectbox(categorical_columns[1],categorical_columns)
 
         with col2:
             if (i+1) >= len(categorical_columns):
                 continue
             c2 = categorical_columns[i+1] 
-            f2 = st.selectbox()
+            f2 = st.selectbox(categorical_columns[1],categorical_columns)
         with col3:
             if (i+2) >= len(categorical_columns):
                 continue
             c3 = categorical_columns[i+2] 
-            f3 = st.selectbox()
+            f3 = st.selectbox(categorical_columns[1],categorical_columns)
         with col4:
             if (i+3) >= len(categorical_columns):
                 continue
             c4 = categorical_columns[i+3] 
-            f4 = st.selectbox()
+            f4 = st.selectbox(categorical_columns[1],categorical_columns)
     
     for col in numerical_columns:
         X_new[col] = X_new[col].map(lambda x: float(x) if not x=='Not available' else np.nan)
