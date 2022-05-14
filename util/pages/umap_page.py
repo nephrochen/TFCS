@@ -50,8 +50,6 @@ def umap_page():
     for e, classname in enumerate(sorted( list(set(umap_org[select_color]).union(set(umap_rep[select_color]))) ) ) :
         color_discrete_map[classname] = color_discrete_map_list[e%10] 
 
-    import plotly.graph_objects as go
-    import numpy as np
 
     col1, col2 = st.columns(2)
     with col1:
@@ -62,56 +60,9 @@ def umap_page():
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
     with col2:
-        # st.write('### Replication Cohort')
-        # u=umap_rep
-        # fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
-        #     marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
-        
-        # fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
-        # st.plotly_chart(fig, use_container_width=True)
-
-
         st.write('### Replication Cohort')
         u=umap_rep
-        fig = go.Figure(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
-             marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
-        
-        x_eye = -1.25
-        y_eye = 2
-        z_eye = 0.5
-        fig.update_layout(
-                title='Animation Test',
-                width=600,
-                height=600,
-                scene_camera_eye=dict(x=x_eye, y=y_eye, z=z_eye),
-                updatemenus=[dict(type='buttons',
-                        showactive=False,
-                        y=1,
-                        x=0.8,
-                        xanchor='left',
-                        yanchor='bottom',
-                        pad=dict(t=45, r=10),
-                        buttons=[dict(label='Play',
-                                        method='animate',
-                                        args=[None, dict(frame=dict(duration=5, redraw=True), 
-                                                                    transition=dict(duration=0),
-                                                                    fromcurrent=True,
-                                                                    mode='immediate'
-                                                                    )]
-                                                    )
-                                            ]
-                                    )
-                                ]
-        )
-
-        def rotate_z(x, y, z, theta):
-            w = x+1j*y
-            return np.real(np.exp(1j*theta)*w), np.imag(np.exp(1j*theta)*w), z
-        frames=[]
-        for t in np.arange(0, 6.26, 0.1):
-            xe, ye, ze = rotate_z(x_eye, y_eye, z_eye, -t)
-            frames.append(go.Frame(layout=dict(scene_camera_eye=dict(x=xe, y=ye, z=ze))))
-        fig.frames=frames
-
+        fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
+            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
+        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
-
