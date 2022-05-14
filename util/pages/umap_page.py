@@ -73,7 +73,7 @@ def umap_page():
                     mode='markers',
                     #colorscale='Viridis',
                     marker=dict(opacity=0.5,),
-                    #name='Grade:'+str(g)
+                    name='Gradeafsafasfd:'+str(g)
                 )
             )
         return data
