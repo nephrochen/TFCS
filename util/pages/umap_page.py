@@ -51,6 +51,62 @@ def umap_page():
         color_discrete_map[classname] = color_discrete_map_list[e%10] 
 
 
+    import plotly.graph_objs as go
+    import numpy as np
+
+    data=[go.Scattergeo(
+                lat=[45.5017, 51.509865, 52.520008],
+                lon=[-73.5673, -0.118092, 13.404954 ],
+                mode='markers',
+                marker_color='red')]
+
+    layout =go.Layout(width=500, height=500,
+            title_text='Your title',
+            title_x=0.5,
+            geo=go.layout.Geo(
+                projection_type='orthographic',
+                center_lon=-180,
+                center_lat=0,
+                projection_rotation_lon=-180,
+                showland=True,
+                showcountries=True,
+                landcolor='rgb(243, 243, 243)',
+                countrycolor='rgb(204, 204, 204)'
+            ))
+
+
+    lon_range = np.arange(-180, 180, 2)
+
+    frames = [go.Frame(layout=go.Layout(geo_center_lon=lon,
+                                        geo_projection_rotation_lon =lon
+                                    ),
+                    name =f'fr{k+1}') for k, lon in enumerate(lon_range)]
+
+
+    sliders = [dict(steps = [dict(method= 'animate',
+                                args= [[f'fr{k+1}'],                           
+                                        dict(mode= 'immediate',
+                                            frame= dict(duration=10, redraw= True),
+                                            transition=dict(duration= 0))],
+                                label=f'fr{k+1}'
+                                ) for k in range(len(lon_range))], 
+                
+                    transition= dict(duration= 0 ),
+                    x=0, # slider starting position  
+                    y=0,   
+                len=1.0) #slider length
+            ]
+        
+
+
+    fig = go.Figure(data=data, layout=layout, frames=frames)
+    fig.update_layout(sliders=sliders)
+    fig.show()
+
+
+
+
+
     col1, col2 = st.columns(2)
     with col1:
         st.write('### Discovery Cohort')
@@ -60,9 +116,13 @@ def umap_page():
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
     with col2:
-        st.write('### Replication Cohort')
-        u=umap_rep
-        fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
-            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
-        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+        # st.write('### Replication Cohort')
+        # u=umap_rep
+        # fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
+        #     marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
+        # fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+        # st.plotly_chart(fig, use_container_width=True)
+        fig = go.Figure(data=data, layout=layout, frames=frames)
+        fig.update_layout(sliders=sliders)
         st.plotly_chart(fig, use_container_width=True)
+
