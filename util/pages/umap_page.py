@@ -64,7 +64,7 @@ def umap_page():
                         marker=dict(size=3,
                         color=u[select_color].values,
                         #colorscale='Viridis',
-                        colorscale=[[0,'#9ac9db'],[1,'#c82423']],
+                        colorscale=[[0,'#9ac9db'],[0,'#9ac9db'],[1,'#c82423'],[1,'#c82423']],
                         colorbar = dict(thickness=25, 
                 tickvals=[.9,1.9,2.9], 
                 ticktext=["CABG","V","CC","CCa"],
