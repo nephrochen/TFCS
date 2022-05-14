@@ -55,7 +55,8 @@ def umap_page():
                         mode='markers',
                         marker=dict(size=3,
                         color=u[select_color].values,
-                        colorscale='Viridis',
+                        #colorscale='Viridis',
+                        color_continuous_scale=['#9ac9db','#c82423'],
                         showscale=True,  
                         opacity=0.5,
                         colorbar=dict(title=str(select_color))))]
@@ -73,7 +74,7 @@ def umap_page():
                     mode='markers',
                     #colorscale='Viridis',
                     marker=dict(opacity=0.5,),
-                    name='NYHA'+str(g)
+                    name='Gradeafsafasfd:'+str(g)
                 )
             )
         return data
