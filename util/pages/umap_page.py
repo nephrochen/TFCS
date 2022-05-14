@@ -45,12 +45,6 @@ def umap_page():
     umap_usp = umap_usp.rename(columns=colorable_columns_maps) 
     umap_org = umap[[select_color] + ['UMAP1', 'UMAP2', 'UMAP3']].dropna()
     umap_rep = umap_usp[[select_color] + ['UMAP1', 'UMAP2', 'UMAP3']].dropna()
-    color_discrete_map = {}
-    color_discrete_map_list = ["red", "green", "blue", "magenta", "yellow", "pink", "grey", "black", "brown", "purple"]
-    for e, classname in enumerate(sorted( list(set(umap_org[select_color]).union(set(umap_rep[select_color]))) ) ) :
-        color_discrete_map[classname] = color_discrete_map_list[e%10] 
-
-
     col1, col2 = st.columns(2)
     with col1:
         st.write('### Discovery Cohort')
@@ -58,8 +52,7 @@ def umap_page():
         fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
             marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0),)
-        fig.update_layout(       showlegend=True,
-                )
+        fig.update_layout(showlegend=True,legend=dict(orientation="h",yanchor="bottom",xanchor="right",) )
         st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
     with col2:
         st.write('### Replication Cohort')
