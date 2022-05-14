@@ -62,23 +62,40 @@ def umap_page():
                         colorbar=dict(title=str(select_color))))]
         return data     
 
-    def sc_dt_ct(u,select_color):
-        grades=sorted(u[select_color].unique())
-        data=[]
-        for g in grades:
-            df_grade=u[u[select_color]==g]
-            data.append(
-                go.Scatter3d(x=df_grade['UMAP1'].values, 
-                        y=df_grade['UMAP2'].values,
-                        z=df_grade['UMAP3'].values,
-                    mode='markers',
-                    colorscale=['#9ac9db','#c82423'],
-                    marker=dict(opacity=0.5,),
-                    name='Gradeafsafasfd:'+str(g)
-                )
-            )
-        return data
+    # def sc_dt_ct(u,select_color):
+    #     grades=sorted(u[select_color].unique())
+    #     data=[]
+    #     for g in grades:
+    #         df_grade=u[u[select_color]==g]
+    #         data.append(
+    #             go.Scatter3d(x=df_grade['UMAP1'].values, 
+    #                     y=df_grade['UMAP2'].values,
+    #                     z=df_grade['UMAP3'].values,
+    #                 mode='markers',
+    #                 colorscale=['#9ac9db','#c82423'],
+    #                 marker=dict(opacity=0.5,),
+    #                 name='Gradeafsafasfd:'+str(g)
+    #             )
+    #         )
+    #     return data
         
+    def sc_dt_ct(u,select_color):
+        data=[go.Scatter3d(x=u['UMAP1'].values, 
+                        y=u['UMAP2'].values,
+                        z=u['UMAP3'].values,
+                        mode='markers',
+                        marker=dict(size=3,
+                        color=u[select_color].values,
+                        #colorscale='Viridis',
+                        colorscale=['#9ac9db','#c82423'],
+                        showscale=True,  
+                        opacity=0.5,
+                        colorbar=dict(title=str(select_color))))]
+        return data     
+
+
+
+
 
 
     g=umap_org[select_color].unique()
@@ -108,3 +125,5 @@ def umap_page():
         # #fig.update_layout(legend_itemsizing ='select_color')
                
         # st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
+
+
