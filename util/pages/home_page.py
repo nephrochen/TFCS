@@ -37,9 +37,9 @@ def home_page():
     right_col.markdown("**Beijing Anzhen Hospital**")
 
     database_link_dict = {
-        "bioRxiv Paper": "https://www.biorxiv.org/content/10.1101/2022.02.02.478568v2",
-        "GitHub Page": "https://github.com/mitch-parker/rascore",
-        "RCSB Protein Data Bank": "https://www.rcsb.org",
+        "bioRxiv Paper": "#############",
+        "GitHub Page": "https://github.com/nephrochen",
+        "Chinese Cardiac Surgery Registry": "http://ccsr.cvs-china.com/",
     }
 
     st.sidebar.markdown("## Database-Related Links")
@@ -47,9 +47,11 @@ def home_page():
         create_st_button(link_text, link_url, st_col=st.sidebar)
 
     community_link_dict = {
-        "NCI RAS Initiative": "https://www.cancer.gov/research/key-initiatives/ras",
-        "KRAS Kickers": "https://www.kraskickers.org",
-        "RASopathies Network": "https://rasopathiesnet.org",
+        "National Clinical Research Center for Cardiovascular Diseases": "https://www.nccmrc.com/",
+        "National Center for Cardiovascular Diseases": "https://www.nccd.org.cn/Home/English",
+        "Beijing Anzhen Hospital": "https://www.anzhen.org/",
+        "Fuwai Hospital": "https://www.fuwai.com/Hospitals/Main?type=4",
+        "Beijing Institute of Heart Lung and Blood Vessel Disease": "http://heartinsti.54doctor.net/News/Main?siteId=123",
     }
 
     st.sidebar.markdown("## Community-Related Links")
@@ -57,18 +59,11 @@ def home_page():
         create_st_button(link_text, link_url, st_col=st.sidebar)
 
     software_link_dict = {
-        "BioPython": "https://biopython.org",
-        "RDKit": "https://www.rdkit.org",
-        "PDBrenum": "http://dunbrack.fccc.edu/PDBrenum/",
-        "Fpocket": "https://bioserv.rpbs.univ-paris-diderot.fr/services/fpocket/",
-        "PyMOL": "https://pymol.org/2/",
-        "3Dmol": "https://3dmol.csb.pitt.edu",
+
         "Pandas": "https://pandas.pydata.org",
         "NumPy": "https://numpy.org",
-        "SciPy": "https://scipy.org",
         "Sklearn": "https://scikit-learn.org/stable/",
         "Matplotlib": "https://matplotlib.org",
-        "Seaborn": "https://seaborn.pydata.org",
         "Streamlit": "https://streamlit.io",
     }
 
