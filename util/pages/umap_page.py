@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 import numpy as np
 from ..functions.path import get_file_path, pages_str, data_str, get_dir_name
 from util.functions.path import get_file_path, get_dir_name, util_str, data_str
-
+from ..functions.colors import *
 
 
 def umap_page():
@@ -73,14 +73,9 @@ def umap_page():
                         opacity=0.5))]
         return data     
 
-
-
-
-
-
     g=umap_org[select_color].unique()
     with col1:
-        st.write('### Discovery Cohort')
+        st.write('### Topological Space for indicator')
         if len(g) < 3: fig = go.FigureWidget(sc_dt_ct(umap_org,select_color))
         else: fig = go.FigureWidget(sc_dt_num(umap_org,select_color))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
@@ -88,7 +83,7 @@ def umap_page():
 
 
     with col2:
-        st.write('### Replication Cohort')
+        st.write('### Topological Space for Mortality Risk')
         fig = go.FigureWidget(sc_dt_num(umap,"SHAP"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
