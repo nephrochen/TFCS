@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 import numpy as np
 from ..functions.path import get_file_path, pages_str, data_str, get_dir_name
 from util.functions.path import get_file_path, get_dir_name, util_str, data_str
-from ..functions.colors import *
+#from ..functions.colors import *
 
 
 def umap_page():
