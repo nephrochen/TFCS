@@ -48,7 +48,7 @@ def umap_page():
     col1, col2 = st.columns(2)
 
 
-    def sc_dt(u,select_color):
+    def sc_dt_num(u,select_color):
         data=[go.Scatter3d(x=u['UMAP1'].values, 
                         y=u['UMAP2'].values,
                         z=u['UMAP3'].values,
@@ -61,27 +61,49 @@ def umap_page():
                         colorbar=dict(title=str(select_color))))]
         return data     
 
-
+    def sc_dt_ct(u,select_color):
+        grades=sorted(u[select_color].unique())
+        data=[]
+        for g in grades:
+            df_grade=u[u[select_color]==g]
+            data.append(
+                go.Scattergl(
+                    x=df_grade.sqft_living15,
+                    y=np.log(df_grade.price),
+                    mode='markers',
+                    text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
+                    marker=dict(
+                        opacity=0.75,
+                    ),
+                    name='Grade:'+str(g)
+                )
+            )
+        return data
+        
 
 
 
     with col1:
         st.write('### Discovery Cohort')
-        u=umap_org
-        fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, 
-                                                 y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
-            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis' ,  opacity=0.5), showlegend = True)])
-        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0),)
-        fig.update_layout(showlegend=True,legend=dict(orientation="h",yanchor="bottom",xanchor="right",) )
-        #fig.update_layout(legend_itemsizing ='select_color')
-               
-        st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
+        fig = go.FigureWidget(sc_dt_ct(umap_org,select_color))
+        fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
+        st.plotly_chart(fig, use_container_width=True)
+
+
     with col2:
         st.write('### Replication Cohort')
-        fig = go.FigureWidget(sc_dt(umap_rep,select_color))
+        fig = go.FigureWidget(sc_dt_num(umap_rep,select_color))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
 
 
-
+        # u=umap_org
+        # fig = go.FigureWidget(data=[go.Scatter3d(x=u['UMAP1'].values, 
+        #                                          y=u['UMAP2'].values, z=u['UMAP3'].values, mode='markers',
+        #     marker=dict(size=3,color=u[select_color].values,colorscale='Viridis' ,  opacity=0.5), showlegend = True)])
+        # fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0),)
+        # fig.update_layout(showlegend=True,legend=dict(orientation="h",yanchor="bottom",xanchor="right",) )
+        # #fig.update_layout(legend_itemsizing ='select_color')
+               
+        # st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
