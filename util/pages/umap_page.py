@@ -67,9 +67,9 @@ def umap_page():
         for g in grades:
             df_grade=u[u[select_color]==g]
             data.append(
-                go.Scattergl(
-                    x=df_grade.sqft_living15,
-                    y=np.log(df_grade.price),
+                go.Scattergl(x=df_grade['UMAP1'].values, 
+                        y=df_grade['UMAP2'].values,
+                        z=df_grade['UMAP3'].values,
                     mode='markers',
                 
                     marker=dict(
