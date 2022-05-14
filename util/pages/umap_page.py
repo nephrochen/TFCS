@@ -71,7 +71,7 @@ def umap_page():
                     x=df_grade.sqft_living15,
                     y=np.log(df_grade.price),
                     mode='markers',
-                    text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
+                
                     marker=dict(
                         opacity=0.75,
                     ),
