@@ -75,7 +75,7 @@ def umap_page():
                     marker=dict(
                         opacity=0.75,
                     ),
-                    name='Grade:'+str(g)
+                    #name='Grade:'+str(g)
                 )
             )
         return data
