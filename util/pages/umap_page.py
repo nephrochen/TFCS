@@ -96,7 +96,7 @@ def umap_page():
 
 
     with col1:
-        st.write('### Topological Space for indicator')
+        st.write('### Topological Space for surgery')
         fig = go.FigureWidget(sc_dt_num(umap,"surgery"))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
