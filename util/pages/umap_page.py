@@ -53,7 +53,7 @@ def umap_page():
                                                  y=u['UMAP2'].values, 
                                                  z=u['UMAP3'].values, 
                                                 mode='markers',
-            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis',  opacity=0.5))])
+            marker=dict(size=3,color=u[select_color].values,colorscale='Viridis', showslegend=True ,  opacity=0.5))])
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0),)
         fig.update_layout(showlegend=True,legend=dict(orientation="h",yanchor="bottom",xanchor="right",) )
         st.plotly_chart(fig, use_container_width=True,template="plotly_dark")
