@@ -25,7 +25,7 @@ def umap_page():
     colorable_columns_maps ={
         # 'SHAP': "SHAP", 
         # 'dead': "dead",
-        # 'surgery': "surgery",
+        'surgery': "surgery",
         # "CBP_t":"CBP_t",
         # "age":"age",
         # "NYHA":"NYHA",
