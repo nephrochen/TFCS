@@ -149,8 +149,8 @@ def home_page():
         """
         ### Funding
 
-        - NIH NIGMS F30 GM142263 (to M.P.)
-        - NIH NIGMS R35 GM122517 (to R.D.)
+        - Beijing Science and Technology Commission of China D171100002917001 (to Z.Z.)
+        - Beijing Science and Technology Commission of China D171100002917003 (to H.Z.)
          """
     )
 
