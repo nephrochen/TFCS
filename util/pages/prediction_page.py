@@ -11,6 +11,9 @@ import plotly
 import copy
 import matplotlib.pyplot as plt
 import joblib
+
+model = joblib.load('util/models/ts.pkl') 
+
 #import xgboost as xgb
 categorical_columns =['gender',
  'height',
