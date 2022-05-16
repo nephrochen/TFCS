@@ -16,7 +16,7 @@ import ast
 ##
 def pdt_feature(f_info,f_i,):
     fs = st.selectbox(f_i,ast.literal_eval(f_info.loc[f_i,"value"]), 
-                    index=int( f_info.iloc[f_i,"index"])
+                    #index=int( f_info.iloc[f_i,"index"])
                     )
     #f_input.append(fs)
 
@@ -42,16 +42,11 @@ def prediction_page():
     st.write("## Model Perturbation Analysis")
 
     
-    col1, col2, col3, col4 = st.columns(4)
-    for i in range(0, len(f), 4):
-        with col1:
-            pdt_feature(f_info,f[0])
-        with col2:
-            pdt_feature(f_info,f[1])
-        with col3:
-            pdt_feature(f_info,f[2])
-        with col4:
-            pdt_feature(f_info,f[3])
+    cols= [st.columns(4)]
+    for i in range(len(cols)):
+        with cols[i]:
+            pdt_feature(f_info,f[i])
+
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
