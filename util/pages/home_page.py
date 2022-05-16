@@ -30,7 +30,7 @@ def home_page():
     left_col, right_col = st.columns(2)
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
-    right_col.markdown("**Created by Haibo Zhang**")
+    right_col.markdown("**Created by Prof. Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
 
     database_link_dict = {
@@ -84,7 +84,7 @@ def home_page():
         ### Summary
         *TFML-score*is a tool for predicting perioperative mortality of 
         combined valve surgery and CABG. 
-        TFML-score database presents an analysis of 多少个特殊指标的
+        TFML-score database presents an analysis of 19 indicators
         map structures和Individualized mortality prediction for patients. 
 
         Details of our work are provided on *** in the pre-print manuscript.
@@ -105,24 +105,24 @@ def home_page():
     # right_col.image(img, output_format="PNG")
 
 
-    left_col.markdown(
-        """
-        ### Usage
+    # left_col.markdown(
+    #     """
+    #     ### Usage
 
-        To the left, is a dropdown main menu for navigating to 
-        each page in the *Rascore* database:
+    #     To the left, is a dropdown main menu for navigating to 
+    #     each page in the *Rascore* database:
 
-        - **Home Page:** We are here!
-        - **Database Overview:** Overview of the *Rascore* database, molecular annotations, 
-        and RAS conformational classification.
-        - **Search PDB:** Search for individual PDB entries containing RAS structures.
-        - **Explore Conformations:** Explore RAS SW1 and SW2 conformations found in the PDB by nucleotide state.
-        - **Analyze Mutations:** Analyze the structural impact of RAS mutations by comparing WT and mutated structures.
-        - **Compare Inhibitors:** Compare inhibitor-bound RAS structures by compound binding site and chemical substructure.
-        - **Query Database:** Query the *Rascore* database by conformations and molecular annotations.
-        - **Classify Structures:** Conformationally classify and annotate the molecular contents of uploaded RAS structures.
-        """
-    )
+    #     - **Home Page:** We are here!
+    #     - **Database Overview:** Overview of the *Rascore* database, molecular annotations, 
+    #     and RAS conformational classification.
+    #     - **Search PDB:** Search for individual PDB entries containing RAS structures.
+    #     - **Explore Conformations:** Explore RAS SW1 and SW2 conformations found in the PDB by nucleotide state.
+    #     - **Analyze Mutations:** Analyze the structural impact of RAS mutations by comparing WT and mutated structures.
+    #     - **Compare Inhibitors:** Compare inhibitor-bound RAS structures by compound binding site and chemical substructure.
+    #     - **Query Database:** Query the *Rascore* database by conformations and molecular annotations.
+    #     - **Classify Structures:** Conformationally classify and annotate the molecular contents of uploaded RAS structures.
+    #     """
+    # )
     st.markdown("---")
 
     left_info_col, right_info_col = st.columns(2)
@@ -132,15 +132,15 @@ def home_page():
         ### Authors
         Please feel free to contact us with any issues, comments, or questions.
 
-        ##### Mitchell Parker [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40Mitch_P)](https://twitter.com/Mitch_P)
+        ##### *******
 
-        - Email:  <mip34@drexel.edu> or <mitchell.parker@fccc.edu>
-        - GitHub: https://github.com/mitch-parker
+        - Email:  <******.edu> or <*********.edu>
+        - GitHub: 
 
-        ##### Roland Dunbrack [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40RolandDunbrack)](https://twitter.com/RolandDunbrack)
+        ##### ******
 
-        - Email: <roland.dunbrack@fccc.edu>
-        - GitHub: https://github.com/DunbrackLab
+        - Email: <**********>
+        - GitHub: *********
         """,
         unsafe_allow_html=True,
     )
