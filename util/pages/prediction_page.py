@@ -23,7 +23,7 @@ f_input=[]
 def pdt_feature(f_info,f_i,):
     fs = st.selectbox(f_i,ast.literal_eval(f_info.iloc[f_i,"value"]), 
                     index=ast.literal_eval(f_info.iloc[f_i,"index"]))
-    f_input.append( fs )
+    f_input.append(fs)
 
 def prediction_page():
     st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
@@ -47,23 +47,23 @@ def prediction_page():
             if (i+0) >= len(categorical_columns):
                 continue
             c1 = categorical_columns[i+0] 
-            f1 = st.selectbox(categorical_columns[1],categorical_columns)
+            f1 = st.selectbox(categorical_columns[1],categorical_columns, index=1)
 
         with col2:
             if (i+1) >= len(categorical_columns):
                 continue
             c2 = categorical_columns[i+1] 
-            f2 = st.selectbox(categorical_columns[2],categorical_columns)
+            f2 = st.selectbox(categorical_columns[2],categorical_columns, index=1)
         with col3:
             if (i+2) >= len(categorical_columns):
                 continue
             c3 = categorical_columns[i+2] 
-            f3 = st.selectbox(categorical_columns[3],categorical_columns)
+            f3 = st.selectbox(categorical_columns[3],categorical_columns, index=1)
         with col4:
             if (i+3) >= len(categorical_columns):
                 continue
             c4 = categorical_columns[i+3] 
-            f4 = st.selectbox(categorical_columns[4],categorical_columns)
+            f4 = st.selectbox(categorical_columns[4],categorical_columns, index=1)
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
