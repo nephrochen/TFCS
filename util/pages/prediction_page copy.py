@@ -119,6 +119,8 @@ def app():
             idx = list(X_new[c1].unique()).index(X_new.loc[select_patient, c1]) 
             f1 = st.selectbox("{}".format(feature_mapping[c1]), list(X_new[c1].unique()), index=idx)
             new_feature_input[c1].append(col_dict_map[c1].get(f1, np.nan))
+        
+        
         with col2:
             if (i+1) >= len(categorical_columns):
                 continue
