@@ -15,6 +15,7 @@ import ast
  
 ##
 def pdt_feature(f_info,f_i,):
+    print( f_info.loc[f_i,:])
     if f_info.loc[f_i,"cat"]:
         fs = st.selectbox(f_i,ast.literal_eval(f_info.loc[f_i,"value"]), 
                         index=int( f_info.loc[f_i,"index"]))
