@@ -61,10 +61,13 @@ def prediction_page():
     
     print(f_input)
 
-    st.write('## Predict mortality rate:'+str(model.predict_proba([f_input])[:, 1][0]))
+    st.write('## Predict mortality rate: '+str(round(
+        model.predict_proba([f_input])[:, 1][0]*100,2
+    )
+        )+"%")
 
 
-
+round(0.21,1)
 
     # st.write('--'*10)
     # st.write("### Do you want to see the effect of changing a factor on this patient?")
