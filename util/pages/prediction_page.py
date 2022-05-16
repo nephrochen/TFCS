@@ -55,6 +55,21 @@ def prediction_page():
         with cols[i]:
             f_input.append(pdt_feature(f_info,f[i]))
     
+    cols= st.columns(4)
+    for i in range(len(cols)):
+        with cols[i]:
+            f_input.append(pdt_feature(f_info,f[i+4]))
+    
+    cols= st.columns(4)
+    for i in range(len(cols)):
+        with cols[i]:
+            f_input.append(pdt_feature(f_info,f[i+8]))
+    
+
+
+
+
+
     # st.write('--'*10)
     # st.write("### Do you want to see the effect of changing a factor on this patient?")
     # color_discrete_map = {}
