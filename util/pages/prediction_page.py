@@ -16,7 +16,7 @@ import ast
 ##
 def pdt_feature(f_info,f_i,):
     fs = st.selectbox(f_i,ast.literal_eval(f_info.loc[f_i,"value"]), 
-                    #index=int( f_info.iloc[f_i,"index"])
+                    index=int( f_info.loc[f_i,"index"])
                     )
     #f_input.append(fs)
 
@@ -29,6 +29,17 @@ def prediction_page():
     'CVA','NYHA','ART','Crea','TC','Glu','ef','CBP_t','IABP']
     f_input=[]
 
+    st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
+    st.markdown(
+        """<style>
+        .boxBorder {
+            border: 2px solid #990066;
+            padding: 10px;
+            outline: #990066 solid 5px;
+            outline-offset: 5px;
+            font-size:25px;
+        }</style>
+        """, unsafe_allow_html=True) 
     st.markdown('<div class="boxBorder"><font color="RED">Disclaimer: This predictive tool is only for research purposes</font></div>', unsafe_allow_html=True)
     st.write("## Model Perturbation Analysis")
 
