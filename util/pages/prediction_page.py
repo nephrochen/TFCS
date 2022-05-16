@@ -13,12 +13,6 @@ import matplotlib.pyplot as plt
 import joblib
 import ast
 
-f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
-model = joblib.load('util/models/ts.pkl') 
-f=['gender','height','weight','sk','age','DM','HT','HL','COPD','PVD',
- 'CVA','NYHA','ART','Crea','TC','Glu','ef','CBP_t','IABP']
-
-f_input=[]
 
 def pdt_feature(f_info,f_i,):
     fs = st.selectbox(f_i,ast.literal_eval(f_info.iloc[f_i,"value"]), 
@@ -26,6 +20,12 @@ def pdt_feature(f_info,f_i,):
     f_input.append(fs)
 
 def prediction_page():
+    f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
+    model = joblib.load('util/models/ts.pkl') 
+    f=['gender','height','weight','sk','age','DM','HT','HL','COPD','PVD',
+    'CVA','NYHA','ART','Crea','TC','Glu','ef','CBP_t','IABP']
+    f_input=[]
+
     st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
     st.markdown(
         """<style>
