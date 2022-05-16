@@ -16,14 +16,15 @@ import ast
 ##
 def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
-        fs = st.selectbox(f_i,ast.literal_eval(f_info.loc[f_i,"value"]), 
+        fs = st.selectbox(f_i,tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
                         index=int( f_info.loc[f_i,"index"]))
+                        
     else:
         fs = st.number_input(f_i, 
         min_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[0]), 
         max_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[1]), 
         value=float(f_info.loc[f_i,"index"]))
-        return fs
+    return fs
 
 
 
@@ -48,37 +49,25 @@ def prediction_page():
     st.markdown('<div class="boxBorder"><font color="RED">Disclaimer: This predictive tool is only for research purposes</font></div>', unsafe_allow_html=True)
     st.write("## Model Perturbation Analysis")
 
-    
-    cols= st.columns(4)
-    for i in range(len(cols)):
-        with cols[i]:
-            f_input.append(pdt_feature(f_info,f[i]))
-    
-    cols= st.columns(4)
-    for i in range(len(cols)):
-        with cols[i]:
-            f_input.append(pdt_feature(f_info,f[i+4]))
-    
-    cols= st.columns(4)
-    for i in range(len(cols)):
-        with cols[i]:
-            f_input.append(pdt_feature(f_info,f[i+8]))
-    
-    cols= st.columns(4)
-    for i in range(len(cols)):
-        with cols[i]:
-            f_input.append(pdt_feature(f_info,f[i+12]))
+    for j in range(4):
+        cols= st.columns(4)
+        for i in range(len(cols)):
+            with cols[i]:f_input.append(pdt_feature(f_info,f[i+4*j]))
+        
     
     cols= st.columns(4)
     for i in range(len(cols)-1):
-        with cols[i]:
-            f_input.append(pdt_feature(f_info,f[i+16]))
+        with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
     
     print(f_input)
 
 
 
+    option = st.selectbox(
+        'How would you like to be contacted?',
+        ('Email', 'Home phone', 'Mobile phone'))
 
+    st.write('You selected:', option)
 
 
 
