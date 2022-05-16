@@ -12,15 +12,15 @@ import copy
 import matplotlib.pyplot as plt
 import joblib
 import ast
- 
+
 ##
 def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
-        fs = st.selectbox(f_i,tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
+        fs = st.selectbox(f_info.loc[f_i,"dis_name"],tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
                         index=int( f_info.loc[f_i,"index"]))
                         
     else:
-        fs = st.number_input(f_i, 
+        fs = st.number_input(f_info.loc[f_i,"dis_name"], 
         min_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[0]), 
         max_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[1]), 
         value=float(f_info.loc[f_i,"index"]))
