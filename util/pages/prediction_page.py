@@ -11,55 +11,19 @@ import plotly
 import copy
 import matplotlib.pyplot as plt
 import joblib
+import ast
 
+f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
 model = joblib.load('util/models/ts.pkl') 
+f=['gender','height','weight','sk','age','DM','HT','HL','COPD','PVD',
+ 'CVA','NYHA','ART','Crea','TC','Glu','ef','CBP_t','IABP']
 
-#import xgboost as xgb
-categorical_columns =['gender',
- 'height',
- 'weight',
- 'sk',
- 'age',
- 'DM',
- 'HT',
- 'HL',
- 'COPD',
- 'PVD',
- 'CVA',
- 'NYHA',
- 'ART',
-#  'AF',
-#  'MI',
-#  'PCI_his',
-#  'cs_SG',
- 'Crea',
- 'TC',
- #'LDL_C',
- 'Glu',
- 'ef',
- #'lvidd',
- #'la',
- 'CBP_t',
- #'ACC_t',
- 'IABP',
-]
+f_input=[]
 
-
-numerical_columns = []
-feature_mapping = {
-    'smoker': "Smoking status",
-    'cognitiveStatus2': "Cognitive status 2",    
-    'elEscorialAtDx': "El Escorial category at diagnosis",
-    'anatomicalLevel_at_onset': "Anatomical level at onset",
-    'site_of_onset': "Site of symptom onset",
-    'onset_side': "Onset side",
-    'ALSFRS1': "ALSFRS-R part 1 score",
-    'FVCPercentAtDx': "FVC% at diagnosis",
-    'weightAtDx_kg': "Weight at diagnosis (kg)",
-    'rateOfDeclineBMI_per_month': "Rate of BMI decline (per month)",
-    'age_at_onset': "Age at symptom onset",
-    'firstALSFRS_daysIntoIllness': "Time of first ALSFRS-R measurement (days from symptom onset)"
-}
+def pdt_feature(f_info,f_i,):
+    fs = st.selectbox(f_i,ast.literal_eval(f_info.iloc[f_i,"value"]), 
+                    index=ast.literal_eval(f_info.iloc[f_i,"index"]))
+    f_input.append( fs )
 
 def prediction_page():
     st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
@@ -100,38 +64,6 @@ def prediction_page():
                 continue
             c4 = categorical_columns[i+3] 
             f4 = st.selectbox(categorical_columns[4],categorical_columns)
-    
-    for col in numerical_columns:
-        X_new[col] = X_new[col].map(lambda x: float(x) if not x=='Not available' else np.nan)
-    for i in range(0, len(numerical_columns), 4):
-        with col1:
-            if (i+0) >= len(numerical_columns):
-                continue
-            c1 = numerical_columns[i+0] 
-            idx = X_new.loc[select_patient, c1]
-            f1 = st.number_input("{}".format(feature_mapping[c1]), min_value=X_new[c1].min(),  max_value=X_new[c1].max(), value=idx)
-            new_feature_input[c1].append(f1)
-        with col2:
-            if (i+1) >= len(numerical_columns):
-                continue
-            c2 = numerical_columns[i+1] 
-            idx = X_new.loc[select_patient, c2]
-            f2 = st.number_input("{}".format(feature_mapping[c2]), min_value=X_new[c2].min(),  max_value=X_new[c2].max(), value=idx)
-            new_feature_input[c2].append(f2)
-        with col3:
-            if (i+2) >= len(numerical_columns):
-                continue
-            c3 = numerical_columns[i+2] 
-            idx = X_new.loc[select_patient, c3]
-            f3 = st.number_input("{}".format(feature_mapping[c3]), min_value=X_new[c3].min(),  max_value=X_new[c3].max(), value=idx)
-            new_feature_input[c3].append(f3)
-        with col4:
-            if (i+3) >= len(numerical_columns):
-                continue
-            c4 = numerical_columns[i+3] 
-            idx = X_new.loc[select_patient, c4]
-            f4 = st.number_input("{}".format(feature_mapping[c4]), min_value=X_new[c4].min(),  max_value=X_new[c4].max(), value=idx)
-            new_feature_input[c4].append(f4)
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
