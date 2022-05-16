@@ -51,8 +51,7 @@ def prediction_page():
     cols= st.columns(4)
     for i in range(len(cols)):
         with cols[i]:
-            pdt_feature(f_info,f[i])
-            f_input.append(fs)
+            f_input.append(pdt_feature(f_info,f[i]))
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
