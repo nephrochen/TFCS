@@ -74,7 +74,7 @@ def prediction_page():
         with cols[i]:
             f_input.append(pdt_feature(f_info,f[i+16]))
     
-
+    print(f_input)
 
 
 
