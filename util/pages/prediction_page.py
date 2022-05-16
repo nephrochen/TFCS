@@ -18,7 +18,7 @@ def pdt_feature(f_info,f_i,):
     fs = st.selectbox(f_i,ast.literal_eval(f_info.iloc[f_i,"value"]), 
                     #index=ast.literal_eval(f_info.iloc[f_i,"index"])
                     )
-    f_input.append(fs)
+    #f_input.append(fs)
 
 def prediction_page():
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
