@@ -44,10 +44,7 @@ def prediction_page():
     col1, col2, col3, col4 = st.columns(4)
     for i in range(0, len(f), 4):
         with col1:
-            if (i+0) >= len(f):
-                continue
-            c1 = f[i+0] 
-            f1 = st.selectbox(f[1],f, index=1)
+            pdt_feature(f_info,f[1])
 
         with col2:
             if (i+1) >= len(f):
