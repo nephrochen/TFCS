@@ -61,13 +61,7 @@ def prediction_page():
     
     print(f_input)
 
-
-
-    option = st.selectbox(
-        'How would you like to be contacted?',
-        ('Email', 'Home phone', 'Mobile phone'))
-
-    st.write('You selected:', option)
+    st.write('## Predict mortality rate:'+str(model.predict_proba([f_input])[:, 1][0]))
 
 
 
