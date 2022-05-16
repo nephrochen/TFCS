@@ -19,9 +19,10 @@ def pdt_feature(f_info,f_i,):
         fs = st.selectbox(f_i,ast.literal_eval(f_info.loc[f_i,"value"]), 
                         index=int( f_info.loc[f_i,"index"]))
     else:
-        fs = st.number_input(f_i, min_value=ast.literal_eval(f_info.loc[f_i,"value"])[0], 
-                                max_value=ast.literal_eval(f_info.loc[f_i,"value"])[1], 
-                                value=float(f_info.loc[f_i,"index"]))
+        fs = st.number_input(f_i, 
+        min_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[0]), 
+        max_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[1]), 
+        value=float(f_info.loc[f_i,"index"]))
     return fs
 
 
