@@ -69,6 +69,13 @@ def prediction_page():
         with cols[i]:
             f_input.append(pdt_feature(f_info,f[i+12]))
     
+    cols= st.columns(4)
+    for i in range(len(cols)-1):
+        with cols[i]:
+            f_input.append(pdt_feature(f_info,f[i+16]))
+    
+
+
 
 
 
