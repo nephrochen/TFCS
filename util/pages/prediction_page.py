@@ -22,7 +22,7 @@ def pdt_feature(f_info,f_i,):
         fs = st.number_input(f_i, min_value=ast.literal_eval(f_info.loc[f_i,"value"])[0], 
                                 max_value=ast.literal_eval(f_info.loc[f_i,"value"])[1], 
                                 value=int(f_info.loc[f_i,"index"]))
-    f_input.append(fs)
+    return fs
 
 
 
@@ -52,7 +52,7 @@ def prediction_page():
     for i in range(len(cols)):
         with cols[i]:
             pdt_feature(f_info,f[i])
-
+            f_input.append(fs)
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
