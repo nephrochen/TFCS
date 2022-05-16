@@ -20,6 +20,8 @@ def pdt_feature(f_info,f_i,):
                     )
     #f_input.append(fs)
 
+
+
 def prediction_page():
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     model = joblib.load('util/models/ts.pkl') 
@@ -42,7 +44,7 @@ def prediction_page():
     st.write("## Model Perturbation Analysis")
 
     
-    cols= [st.columns(4)]
+    cols= st.columns(4)
     for i in range(len(cols)):
         with cols[i]:
             pdt_feature(f_info,f[i])
