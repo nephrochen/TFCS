@@ -45,23 +45,13 @@ def prediction_page():
     col1, col2, col3, col4 = st.columns(4)
     for i in range(0, len(f), 4):
         with col1:
-            pdt_feature(f_info,f[1])
-
+            pdt_feature(f_info,f[0])
         with col2:
-            if (i+1) >= len(f):
-                continue
-            c2 = categorical_columns[i+1] 
-            f2 = st.selectbox(categorical_columns[2],categorical_columns, index=1)
+            pdt_feature(f_info,f[1])
         with col3:
-            if (i+2) >= len(categorical_columns):
-                continue
-            c3 = categorical_columns[i+2] 
-            f3 = st.selectbox(categorical_columns[3],categorical_columns, index=1)
+            pdt_feature(f_info,f[2])
         with col4:
-            if (i+3) >= len(categorical_columns):
-                continue
-            c4 = categorical_columns[i+3] 
-            f4 = st.selectbox(categorical_columns[4],categorical_columns, index=1)
+            pdt_feature(f_info,f[3])
     
     st.write('--'*10)
     st.write("### Do you want to see the effect of changing a factor on this patient?")
