@@ -108,7 +108,7 @@ def umap_page():
     col1, col2 = st.columns(2)
 
 
-    def sc_dt_num(u,i_select,):
+    def sc_dt_num(u,i_select):
         data=[go.Scatter3d(x=u['UMAP1'].values, 
                         y=u['UMAP2'].values,
                         z=u['UMAP3'].values,
@@ -121,7 +121,7 @@ def umap_page():
                         colorbar=dict(title=str(i_select))))]
         return data     
 
-    def sc_dt_ct(u,i_select):
+    def sc_dt_ct(u,i_select,g):
         data=[go.Scatter3d(x=u['UMAP1'].values, 
                         y=u['UMAP2'].values,
                         z=u['UMAP3'].values,
