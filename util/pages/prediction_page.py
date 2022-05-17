@@ -12,7 +12,7 @@ import copy
 import matplotlib.pyplot as plt
 import joblib
 import ast
-
+from streamlit_shap import st_shap
 ##
 def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
@@ -26,9 +26,18 @@ def pdt_feature(f_info,f_i,):
         value=float(f_info.loc[f_i,"index"]))
     return fs
 
+def shap_values_waterfall(k_explainer,ip,f_n):
+    shap_values = k_explainer.shap_values(pd.DataFrame([ip,ip]))
+    tmp = shap.Explanation(values = np.array(shap_values[1], dtype=np.float32),
+                        base_values = np.array([k_explainer.expected_value[1]]*len(shap_values[1]), 
+                        dtype=np.float32),data=pd.DataFrame([ip,ip]),feature_names=f_n)
+    return tmp[1]
+
 
 
 def prediction_page():
+    explainer = joblib.load('util/models/ts_k_explainer.pkl') 
+    shap_values = joblib.load('util/models/ts_shap_values.pkl') 
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     model = joblib.load('util/models/ts.pkl') 
     f=['gender','height','weight','sk','age','DM','HT','HL','COPD','PVD',
@@ -54,7 +63,6 @@ def prediction_page():
         for i in range(len(cols)):
             with cols[i]:f_input.append(pdt_feature(f_info,f[i+4*j]))
         
-    
     cols= st.columns(4)
     for i in range(len(cols)-1):
         with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
@@ -66,8 +74,33 @@ def prediction_page():
     )
         )+"%")
 
+   
+    st.write('## Details:')
 
-round(0.21,1)
+
+    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=300)
+    # st_shap(shap.plots.beeswarm(shap_values), height=300)
+
+    # explainer = shap.TreeExplainer(model)
+    # shap_values = explainer.shap_values(X)
+
+    # st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X_display.iloc[0,:]), height=200, width=1000)
+    # st_shap(shap.force_plot(explainer.expected_value, shap_values[:1000,:], X_display.iloc[:1000,:]), height=400, width=1000)
+
+
+
+
+
+
+
+
+    # #st.set_option('deprecation.showPyplotGlobalUse', False)
+    # explainer = joblib.load('util/models/ts_k_explainer.pkl') 
+    # shap_values = explainer.shap_values(pd.Series(f_input))
+    # shap.force_plot(explainer.expected_value[1],shap_values[1], f_input,matplotlib=True,show=False
+    #                   ,figsize=(16,5))
+    # st.pyplot(bbox_inches='tight',dpi=300,pad_inches=0)
+
 
     # st.write('--'*10)
     # st.write("### Do you want to see the effect of changing a factor on this patient?")
