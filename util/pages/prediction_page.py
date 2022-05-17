@@ -36,7 +36,7 @@ def shap_values_waterfall(k_explainer,ip,f_n):
 
 
 def prediction_page():
-    explainer = joblib.load('util/models/ts_k_explainer.pkl') 
+    explainer = joblib.load('util/models/ts_k_explainer_fs.pkl') 
     shap_values = joblib.load('util/models/ts_shap_values.pkl') 
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     model = joblib.load('util/models/ts.pkl') 
@@ -78,7 +78,7 @@ def prediction_page():
     st.write('## Details:')
 
 
-    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=300)
+    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=300, width=1000)
     # st_shap(shap.plots.beeswarm(shap_values), height=300)
 
     # explainer = shap.TreeExplainer(model)
