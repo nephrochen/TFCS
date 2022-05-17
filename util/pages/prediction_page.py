@@ -23,7 +23,8 @@ def pdt_feature(f_info,f_i,):
         min_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[0])
         max_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[1])
         fs = st.number_input(f_info.loc[f_i,"dis_name"], 
-        min_value=min_v, max_value=max_v, value=int(f_info.loc[f_i,"index"]),step= int((max_v-min_v)/4))
+        min_value=min_v, max_value=max_v, value=int(f_info.loc[f_i,"index"]),
+        step= int((max_v-min_v)/3))
     return fs
 
 def shap_values_waterfall(k_explainer,ip,f_n):
