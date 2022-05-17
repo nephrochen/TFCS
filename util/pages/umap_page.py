@@ -64,7 +64,6 @@ def gradient_color(color_list, color_sum=700):
 
 
 
-
 def col_sca(g,input_colors):
     input_colors = input_colors
     colors = gradient_color(input_colors)
@@ -72,8 +71,8 @@ def col_sca(g,input_colors):
     p=[i*1/len(g) for i in range(len(g)+1)]
     c_l = [it for su in [[c[i]]*2 for i in range(len(g))] for it in su]
     p_l = [it for su in [[p[i]]*2 for i in range(len(g)+1)] for it in su]
-    colorscale = np.array([p_l[1:len(p_l)-1],c_l ]).T
-    return colorscale
+    return [[x,y] for x,y in zip(p_l[1:len(p_l)-1],c_l )]
+
 
 
 
