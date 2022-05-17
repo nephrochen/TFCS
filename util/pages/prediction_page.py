@@ -20,10 +20,10 @@ def pdt_feature(f_info,f_i,):
                         index=int( f_info.loc[f_i,"index"]))
                         
     else:
+        min_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[0])
+        max_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[1])
         fs = st.number_input(f_info.loc[f_i,"dis_name"], 
-        min_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[0]), 
-        max_value=float(ast.literal_eval(f_info.loc[f_i,"value"])[1]), 
-        value=float(f_info.loc[f_i,"index"]))
+        min_value=min_v, max_value=max_v, value=int(f_info.loc[f_i,"index"]),step= int((max_v-min_v)/4))
     return fs
 
 def shap_values_waterfall(k_explainer,ip,f_n):
@@ -78,7 +78,7 @@ def prediction_page():
     st.write('## Details:')
 
 
-    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=300, width=1000)
+    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)))
     # st_shap(shap.plots.beeswarm(shap_values), height=300)
 
     # explainer = shap.TreeExplainer(model)
