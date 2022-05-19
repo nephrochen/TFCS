@@ -85,7 +85,7 @@ def home_page():
         *TFML-score*is a tool for predicting perioperative mortality of 
         combined valve surgery and CABG. 
         TFML-score database presents an analysis of 19 indicators
-        map structures和Individualized mortality prediction for patients. 
+        map structures Individualized mortality prediction for patients. 
 
         Details of our work are provided on *** in the pre-print manuscript.
         We hope that researchers and physicians will use TFML-score to gain novel insights 

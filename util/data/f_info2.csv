@@ -1,0 +1,28 @@
+,value,cat,dis_name,ts,index,
+gender,"[0.0, 1.0]",1,Gender,1,1,"[""Female"", ""Male""]"
+height,"[83.0, 230.0]",0,Height (cm),1,180,
+weight,"[34.0, 200.0]",0,Weight (kg),1,100,
+sk,"[0.0, 1.0]",1,Smoking status,1,1,"[0.0, 1.0]"
+age,"[8, 110]",0,Age,1,60,
+DM,"[0.0, 1.0]",1,Diabetes,1,1,"[""No"", ""Yes""]"
+HT,"[0.0, 1.0]",1,Hypertension,1,1,"[""No"", ""Yes""]"
+HL,"[0.0, 1.0]",1,Hyperlipidemia,1,1,"[""No"", ""Yes""]"
+COPD,"[0.0, 1.0]",1,COPD,1,1,"[""No"", ""Yes""]"
+PVD,"[0.0, 1.0]",1,Peripheral vascular disease,1,1,"[""No"", ""Yes""]"
+CVA,"[0.0, 1.0]",1,Cerebrovascular accident,1,1,"[""No"", ""Yes""]"
+NYHA,"[1.0, 2.0, 3.0, 4.0]",1,NYHA,1,1,"[""1"", ""2"", ""3"", ""4""]"
+ART,"[0.0, 1.0]",1,Arrhythmia,1,1,"[""No"", ""Yes""]"
+AF,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
+MI,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
+PCI_his,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
+cs_SG,"[0.0, 1.0]",1,,0,0,
+Crea,"[0.0, 374.0]",0,Serum creatinine,1,50,
+TC,"[0.84, 10.2]",0,serum total cholesterol,1,1,
+LDL_C,"[0.0, 5.88]",0,,0,4,
+Glu,"[1.94, 78.0]",0,blood glucose,1,50,
+ef,"[20.0, 85.0]",0,Ejection friction,1,50,
+lvidd,"[27.0, 74.8]",0,,0,50,
+la,"[0.0, 80.0]",0,,0,50,
+CBP_t,"[0.0, 447.0]",0,CPB time,1,50,
+ACC_t,"[0.0, 273.0]",0,,0,50,
+IABP,"[0.0, 1.0]",1,IABP,1,1,"[""No"", ""Yes""]"

@@ -10,38 +10,31 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
+################
 def RGB_to_Hex(rgb):
     RGB = rgb.split(',') 
     color = '#'
     for i in RGB:
         num = int(i)
         color += str(hex(num))[-2:].replace('x', '0').upper()
-
     return color
-
 
 def RGB_list_to_Hex(RGB):
     color = '#'
     for i in RGB:
         num = int(i)
         color += str(hex(num))[-2:].replace('x', '0').upper()
-
     return color
-
 
 def Hex_to_RGB(hex):
     r = int(hex[1:3], 16)
     g = int(hex[3:5], 16)
     b = int(hex[5:7], 16)
     rgb = str(r) + ',' + str(g) + ',' + str(b)
-
     return rgb, [r, g, b]
-
 
 def gradient_color(color_list, color_sum=700):
     color_center_count = len(color_list)
-
     color_sub_count = int(color_sum / (color_center_count - 1))
     color_index_start = 0
     color_map = []
@@ -59,11 +52,6 @@ def gradient_color(color_list, color_sum=700):
         color_index_start = color_index_end
     return color_map
 
-
-
-
-
-
 def col_sca(g,input_colors):
     input_colors = input_colors
     colors = gradient_color(input_colors)
@@ -73,9 +61,100 @@ def col_sca(g,input_colors):
     p_l = [it for su in [[p[i]]*2 for i in range(len(g)+1)] for it in su]
     return [[x,y] for x,y in zip(p_l[1:len(p_l)-1],c_l )]
 
+def sc_dt_num(u,i_select):
+    data=[go.Scatter3d(x=u['UMAP1'].values, 
+                    y=u['UMAP2'].values,
+                    z=u['UMAP3'].values,
+                    mode='markers',
+                    marker=dict(size=3,
+                    color=u[i_select].values,
+                    colorscale=['#9ac9db','#c82423'],
+                    showscale=True,  
+                    opacity=0.5,
+                    colorbar=dict(title=str(i_select))))]
+    return data     
+
+def sc_dt_ct(u,i_select,g):
+    data=[go.Scatter3d(x=u['UMAP1'].values, 
+                    y=u['UMAP2'].values,
+                    z=u['UMAP3'].values,
+                    mode='markers',
+                    marker=dict(size=3,
+                    color=u[i_select].values.astype("str"),
+                    #colorscale='Viridis',
+                    #colorscale=[[0,'#9ac9db'],[0.5,'#9ac9db'],[0.5,'#c82423'],[1,'#c82423']],
+                    #colorscale=col_sca(g,['#9ac9db','#c82423']),
+                    colorbar = dict(thickness=25, 
+            # tickvals=[.9,1.9,2.9], 
+            #ticktext=["CABG","V","CC","CCa"],
+            title=str(i_select)),
+                    showscale=True,  
+                    opacity=0.5))]
+    return data     
+#####
+def sc_dt_num(u,i_select):
+    data=[go.Scatter3d(x=u['UMAP1'].values, 
+                    y=u['UMAP2'].values,
+                    z=u['UMAP3'].values,
+                    mode='markers',
+                    marker=dict(size=3,
+                    color=u[i_select].values,
+                    colorscale=['#9ac9db','#c82423'],
+                    showscale=True,  
+                    opacity=0.5,
+                    colorbar=dict(title=str(i_select))))]
+    return data     
+
+def sc_dt_ct(u,i_select,g):
+    data=[go.Scatter3d(x=u['UMAP1'].values, 
+                    y=u['UMAP2'].values,
+                    z=u['UMAP3'].values,
+                    mode='markers',
+                    marker=dict(size=3,
+                    color=u[i_select].values,
+                    #colorscale='Viridis',
+                    #colorscale=[[0,'#9ac9db'],[0.5,'#9ac9db'],[0.5,'#c82423'],[1,'#c82423']],
+                    #colorscale=col_sca(g,['#9ac9db','#c82423']),
+                    colorbar = dict(thickness=25, 
+            # tickvals=[.9,1.9,2.9], 
+            #ticktext=["CABG","V","CC","CCa"],
+            title=str(i_select)),
+                    showscale=True,  
+                    opacity=0.5))]
+    return data     
+##################################
 
 
 
+grades=sorted(df.grade.unique())
+data=[]
+for g in grades:
+    df_grade=df[df.grade==g]
+    data.append(
+        go.Scattergl(
+            x=df_grade.sqft_living15,
+            y=np.log(df_grade.price),
+            mode='markers',
+            text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
+            marker=dict(
+                opacity=0.75,
+            ),
+            name='Grade:'+str(g)
+        )
+    )
+
+figure = go.Figure(data=data, layout=layout)
+
+ply.iplot(figure)  
+
+
+
+
+
+
+
+
+##################################
 def umap_page():
     st.write("## Topological Space for ALS Subtypes using Semi-supervised Approach")
     umap = pd.read_csv("/app/tfcs/util/data/umap.csv", sep=',')
@@ -105,38 +184,6 @@ def umap_page():
     
     
     col1, col2 = st.columns(2)
-
-
-    def sc_dt_num(u,i_select):
-        data=[go.Scatter3d(x=u['UMAP1'].values, 
-                        y=u['UMAP2'].values,
-                        z=u['UMAP3'].values,
-                        mode='markers',
-                        marker=dict(size=3,
-                        color=u[i_select].values,
-                        colorscale=['#9ac9db','#c82423'],
-                        showscale=True,  
-                        opacity=0.5,
-                        colorbar=dict(title=str(i_select))))]
-        return data     
-
-    def sc_dt_ct(u,i_select,g):
-        data=[go.Scatter3d(x=u['UMAP1'].values, 
-                        y=u['UMAP2'].values,
-                        z=u['UMAP3'].values,
-                        mode='markers',
-                        marker=dict(size=3,
-                        color=u[i_select].values.astype("str"),
-                        #colorscale='Viridis',
-                        #colorscale=[[0,'#9ac9db'],[0.5,'#9ac9db'],[0.5,'#c82423'],[1,'#c82423']],
-                        #colorscale=col_sca(g,['#9ac9db','#c82423']),
-                        colorbar = dict(thickness=25, 
-               # tickvals=[.9,1.9,2.9], 
-                #ticktext=["CABG","V","CC","CCa"],
-                title=str(i_select)),
-                        showscale=True,  
-                        opacity=0.5))]
-        return data     
 
     g=umap_org[i_select].unique()
     with col1:
