@@ -160,7 +160,7 @@ def umap_page():
     g=umap_org[i_select].unique()
     with col1:
         st.write('### Topological Space for indicator')
-        if len(g) < 3: fig = go.FigureWidget(sc_dt_ct(umap_org,i_select,g))
+        if len(g) < 5: fig = go.FigureWidget(sc_dt_ct(umap_org,i_select,g))
         else: fig = go.FigureWidget(sc_dt_num(umap_org,i_select))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
