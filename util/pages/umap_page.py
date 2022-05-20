@@ -116,7 +116,7 @@ def sc_dt_ct(u,i_select,g_l):
                 mode='markers',
                 
                 marker=dict(size=3,
-                    opacity=0.25, color=c_l[i],
+                    opacity=0.75, color=c_l[i],
                 ),
                 name='Grade:'+str(grades[i])
             )
