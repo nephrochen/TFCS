@@ -122,7 +122,10 @@ def prediction_page():
         """<style>.boxBorder {border: 10px solid #f5e893;font-size: 25px;background-color: #f5e893;text-align:center;}</style>
         """, unsafe_allow_html=True) 
     st.markdown('<div class="boxBorder"><font color="BLACK"> <strong>Disclaimer: This predictive tool is only for research purposes <strong></font></div>', unsafe_allow_html=True)
-    st.write("## Model Perturbation Analysis")
+   
+   
+    left_p, right_p = st.columns(2)
+    with left_p: st.write("## Model Perturbation Analysis")
 
     for j in range(4):
         cols= st.columns(4)
@@ -133,12 +136,8 @@ def prediction_page():
     for i in range(len(cols)-1):
         with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
     
-    print(f_input)
 
-    st.write('## Predict mortality rate: '+str(round(
-        model.predict_proba([f_input])[:, 1][0]*100,2
-    )
-        )+"%")
+    with left_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
 
 
 
