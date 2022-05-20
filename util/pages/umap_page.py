@@ -39,7 +39,6 @@ def sc_dt_num(u,i_select):
 
 c_l=['#8ebbd9','#f08c8d','#b49dcc','#d7ab93']
 def sc_dt_ct(u,i_select,g_l,u_name):
-    u_name[i_select]
     grades=sorted(g_l)
     data=[]
     for i in range(len(grades)):
