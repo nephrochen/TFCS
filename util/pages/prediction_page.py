@@ -137,12 +137,11 @@ def prediction_page():
         with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
     
 
-    with left_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
+    with right_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
 
 
-
+    st.write('## Waterfall plot for predict mortality rate')
     st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=1000)
-    st.write('# Waterfall plot for predict mortality rate')
 
     # st_shap(shap.plots.beeswarm(shap_values), height=300)
 
