@@ -95,13 +95,8 @@ def sc_dt_ct(u,i_select,g):
                     mode='markers',
                     marker=dict(size=3,
                     color=u[i_select].values,
-                    #colorscale='Viridis',
-                    #colorscale=[[0,'#9ac9db'],[0.5,'#9ac9db'],[0.5,'#c82423'],[1,'#c82423']],
                     #colorscale=col_sca(g,['#9ac9db','#c82423']),
-                    colorbar = dict(thickness=25, 
-            # tickvals=[.9,1.9,2.9], 
-            #ticktext=["CABG","V","CC","CCa"],
-            title=str(i_select)),
+                    colorbar = dict(thickness=25, title=str(i_select)),
                     showscale=True,  
                     opacity=0.5))]
     return data     
@@ -119,9 +114,8 @@ def sc_dt_ct(u,i_select,g_l):
                 y=df_grade['UMAP2'].values,
                 z=df_grade['UMAP3'].values,
                 mode='markers',
-                #text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
-                marker=dict(
-                    opacity=0.75,
+                marker=dict(size=3,
+                    opacity=0.5,
                 ),
                 name='Grade:'+str(g)
             )
