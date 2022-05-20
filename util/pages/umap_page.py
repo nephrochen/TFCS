@@ -28,10 +28,10 @@ def sc_dt_num(u,i_select):
     return data     
  
 ##################################
+# i_select="surgery"
 
-
-    fs = st.selectbox(f_info.loc[f_i,"dis_name"],tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
-                    index=int( f_info.loc[f_i,"index"]))
+# u_name = pd.read_csv("../data/f_info2.csv",index_col=0)
+# ast.literal_eval(u_name.loc[i_select,"u_name"])[3]
 
 
 
