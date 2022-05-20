@@ -74,23 +74,6 @@ def sc_dt_num(u,i_select):
                     colorbar=dict(title=str(i_select))))]
     return data     
 
-def sc_dt_ct(u,i_select,g):
-    data=[go.Scatter3d(x=u['UMAP1'].values, 
-                    y=u['UMAP2'].values,
-                    z=u['UMAP3'].values,
-                    mode='markers',
-                    marker=dict(size=3,
-                    color=u[i_select].values.astype("str"),
-                    #colorscale='Viridis',
-                    #colorscale=[[0,'#9ac9db'],[0.5,'#9ac9db'],[0.5,'#c82423'],[1,'#c82423']],
-                    #colorscale=col_sca(g,['#9ac9db','#c82423']),
-                    colorbar = dict(thickness=25, 
-            # tickvals=[.9,1.9,2.9], 
-            #ticktext=["CABG","V","CC","CCa"],
-            title=str(i_select)),
-                    showscale=True,  
-                    opacity=0.5))]
-    return data     
 #####
 def sc_dt_num(u,i_select):
     data=[go.Scatter3d(x=u['UMAP1'].values, 
