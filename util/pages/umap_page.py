@@ -178,13 +178,13 @@ def umap_page():
 
     with col1:
         st.write('### Topological Space for types of surgery')
-        fig = go.FigureWidget(sc_dt_num(umap,"surgery"))
+        fig = go.FigureWidget(sc_dt_ct(umap_org,"surgery",umap_org["surgery"].unique()))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         st.write('### Topological Space for Mortality Risk')
-        fig = go.FigureWidget(sc_dt_num(umap,"dead"))
+        fig = go.FigureWidget(sc_dt_ct(umap_org,"dead",umap_org["dead"].unique()))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
