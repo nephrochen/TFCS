@@ -114,6 +114,7 @@ def sc_dt_ct(u,i_select,g_l):
                 y=df_grade['UMAP2'].values,
                 z=df_grade['UMAP3'].values,
                 mode='markers',
+                 color='#d2e6f0',
                 marker=dict(size=3,
                     opacity=0.25,
                 ),
