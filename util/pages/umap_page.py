@@ -115,7 +115,7 @@ def sc_dt_ct(u,i_select,g_l):
                 z=df_grade['UMAP3'].values,
                 mode='markers',
                 marker=dict(size=3,
-                    opacity=0.5,
+                    opacity=0.25,
                 ),
                 name='Grade:'+str(g)
             )
