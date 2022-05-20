@@ -103,7 +103,7 @@ def sc_dt_ct(u,i_select,g):
 ##################################
 
 c_l=['#8ebbd9','#f08c8d','#b49dcc','#d7ab93','#8ebbd9','#f08c8d','#b49dcc','#d7ab93']
-def sc_dt_ct(u,i_select,g_l):
+def sc_dt_ct(u,i_select,g_l,u_name):
     grades=sorted(g_l)
     data=[]
     for i in range(len(grades)):
@@ -130,7 +130,7 @@ def sc_dt_ct(u,i_select,g_l):
 ##################################
 def umap_page():
     st.write("## Topological Space for ALS Subtypes using Semi-supervised Approach")
-    u_name = pd.read_csv("/app/tfcs/util/data/f_info2.csv", sep=',')
+    u_name = pd.read_csv("/app/tfcs/util/data/f_info2.csv",index_col=0)
     umap = pd.read_csv("/app/tfcs/util/data/umap.csv", sep=',')
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
     colorable_columns_maps ={
@@ -162,7 +162,7 @@ def umap_page():
     g=umap_org[i_select].unique()
     with col1:
         st.write('### Topological Space for indicator')
-        if len(g) < 5: fig = go.FigureWidget(sc_dt_ct(umap_org,i_select,g))
+        if len(g) < 5: fig = go.FigureWidget(sc_dt_ct(umap_org,i_select,g,u_name))
         else: fig = go.FigureWidget(sc_dt_num(umap_org,i_select))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
@@ -180,13 +180,13 @@ def umap_page():
 
     with col1:
         st.write('### Topological Space for types of surgery')
-        fig = go.FigureWidget(sc_dt_ct(umap,"surgery",umap["surgery"].unique()))
+        fig = go.FigureWidget(sc_dt_ct(umap,"surgery",umap["surgery"].unique(),u_name))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         st.write('### Topological Space for Mortality Risk')
-        fig = go.FigureWidget(sc_dt_ct(umap,"dead",umap["dead"].unique()))
+        fig = go.FigureWidget(sc_dt_ct(umap,"dead",umap["dead"].unique(),u_name))
         fig.update_layout(template='plotly_white',margin=dict(l=0, r=0, b=0, t=0))
         st.plotly_chart(fig, use_container_width=True)
 
