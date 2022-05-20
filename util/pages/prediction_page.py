@@ -140,11 +140,11 @@ def prediction_page():
     )
         )+"%")
 
-   
-    st.write('## Details:')
 
 
     st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=1000)
+    st.write('waterfall plot for predict mortality rate')
+
     # st_shap(shap.plots.beeswarm(shap_values), height=300)
 
     # explainer = shap.TreeExplainer(model)
