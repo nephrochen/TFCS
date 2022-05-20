@@ -109,6 +109,7 @@ def prediction_page():
 
     cols= st.sidebar.columns(4)
     ps=['az','az2','fw','fw2']
+    st.sidebar.markdown("---")
     for i in range(len(ps)):
         with cols[i]: st.image(Image.open('/app/tfcs/util/data/'+ps[i]+'.png'), caption='')
 
