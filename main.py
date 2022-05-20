@@ -23,7 +23,7 @@ class MultiApp:
     def run(self):
         img = Image.open(
             get_file_path(
-                "rascore_logo.png",
+                "az2.png",
                 dir_path=f"{get_dir_name(__file__)}/{util_str}/{data_str}",
             ),
         )
