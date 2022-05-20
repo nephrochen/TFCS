@@ -144,7 +144,7 @@ def prediction_page():
     st.write('## Details:')
 
 
-    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=200, width=1000)
+    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=800)
     # st_shap(shap.plots.beeswarm(shap_values), height=300)
 
     # explainer = shap.TreeExplainer(model)
