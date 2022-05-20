@@ -102,12 +102,12 @@ def sc_dt_ct(u,i_select,g):
     return data     
 ##################################
 
-
+c_l=['#d2e6f0','f08c8d','b49dcc','d7ab93']
 def sc_dt_ct(u,i_select,g_l):
     grades=sorted(g_l)
     data=[]
-    for g in grades:
-        df_grade=u[u[i_select]==g]
+    for i in range(len(grades)):
+        df_grade=u[u[i_select]==grades[i]]
         data.append(
         go.Scatter3d(
                 x=df_grade['UMAP1'].values,
@@ -118,7 +118,7 @@ def sc_dt_ct(u,i_select,g_l):
                 marker=dict(size=3,
                     opacity=0.25, color='#d2e6f0',
                 ),
-                name='Grade:'+str(g)
+                name='Grade:'+str(grades[i])
             )
         )
     return data
