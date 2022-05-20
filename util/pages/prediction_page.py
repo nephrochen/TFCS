@@ -107,9 +107,6 @@ def prediction_page():
         create_st_button(link_text, link_url, st_col=st_col)
 
 
-    image = Image.open('sunrise.jpg')
-    st.image(Image.open('sunrise.jpg'), caption='')
-
     cols= st.sidebar.columns(4)
     ps=['az','az2','fw','fw2']
     for i in range(len(ps)):
