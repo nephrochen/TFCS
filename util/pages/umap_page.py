@@ -114,11 +114,12 @@ def sc_dt_ct(u,i_select,g_l):
     for g in grades:
         df_grade=u[u[i_select]==g]
         data.append(
-        go.Scattergl(
-                x=df_grade.sqft_living15,
-                y=np.log(df_grade.price),
+        go.Scatter3d(
+                x=df_grade['UMAP1'].values,
+                y=df_grade['UMAP2'].values,
+                z=df_grade['UMAP3'].values,
                 mode='markers',
-                text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
+                #text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
                 marker=dict(
                     opacity=0.75,
                 ),
