@@ -39,7 +39,7 @@ class MultiApp:
 
 
 app = MultiApp()
-app.add_app("prediction", prediction_page)
-app.add_app("Home Page", home_page)
-app.add_app("umap", umap_page)
+app.add_app("WEB CALCULATOR", prediction_page)
+app.add_app("SUBTYPE TOPOLOGY", umap_page)
+app.add_app("ABOUT", home_page)
 app.run()
