@@ -121,8 +121,9 @@ def prediction_page():
     st.markdown(
         """<style>
         .boxBorder {
-            border: 2px solid #990066;
             padding: 10px;
+            outline: #990066 solid 5px;
+            outline-offset: 5px;
             font-size:25px;
         }</style>
         """, unsafe_allow_html=True) 
