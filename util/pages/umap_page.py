@@ -108,30 +108,24 @@ def sc_dt_ct(u,i_select,g):
 ##################################
 
 
-
-# grades=sorted(df.grade.unique())
-# data=[]
-# for g in grades:
-#     df_grade=df[df.grade==g]
-#     data.append(
-#         go.Scattergl(
-#             x=df_grade.sqft_living15,
-#             y=np.log(df_grade.price),
-#             mode='markers',
-#             text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
-#             marker=dict(
-#                 opacity=0.75,
-#             ),
-#             name='Grade:'+str(g)
-#         )
-#     )
-
-# figure = go.Figure(data=data, layout=layout)
-
-# ply.iplot(figure)  
-
-
-
+def sc_dt_ct(u,i_select,g_l):
+    grades=sorted(g_l)
+    data=[]
+    for g in grades:
+        df_grade=u[u[i_select]==g]
+        data.append(
+        go.Scattergl(
+                x=df_grade.sqft_living15,
+                y=np.log(df_grade.price),
+                mode='markers',
+                text=[f'Living Room Area:{df_grade.at[i, "sqft_living15"]} sq.ft.<br>Grade:{df_grade.at[i, "grade"]}<br>Price:${df_grade.at[i, "price"]}' for i in df_grade.index],
+                marker=dict(
+                    opacity=0.75,
+                ),
+                name='Grade:'+str(g)
+            )
+        )
+    return data
 
 
 
