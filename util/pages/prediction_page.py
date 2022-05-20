@@ -118,15 +118,7 @@ def prediction_page():
 
     st.markdown("---")
     st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
-    st.markdown(
-        """<style>
-        .boxBorder {
-            padding: 10px;
-            outline: #990066 solid 5px;
-            outline-offset: 5px;
-            font-size:25px;
-        }</style>
-        """, unsafe_allow_html=True) 
+
     st.markdown('<div class="boxBorder"><font color="RED">Disclaimer: This predictive tool is only for research purposes</font></div>', unsafe_allow_html=True)
     st.write("## Model Perturbation Analysis")
 
