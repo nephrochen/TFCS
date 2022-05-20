@@ -51,7 +51,7 @@ def sc_dt_ct(u,i_select,g_l,u_name):
                 z=df_grade['UMAP3'].values,
                 mode='markers',
                 marker=dict(size=3,opacity=0.75, color=c_l[i],),
-                name=ast.literal_eval(u_name.loc[i_select,"u_name"])[i]
+                name='ast.literal_eval(u_name.loc[i_select,"u_name"])[i]'
             ))
     return data
 
