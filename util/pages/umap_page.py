@@ -10,69 +10,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-################
-def RGB_to_Hex(rgb):
-    RGB = rgb.split(',') 
-    color = '#'
-    for i in RGB:
-        num = int(i)
-        color += str(hex(num))[-2:].replace('x', '0').upper()
-    return color
+import ast
 
-def RGB_list_to_Hex(RGB):
-    color = '#'
-    for i in RGB:
-        num = int(i)
-        color += str(hex(num))[-2:].replace('x', '0').upper()
-    return color
-
-def Hex_to_RGB(hex):
-    r = int(hex[1:3], 16)
-    g = int(hex[3:5], 16)
-    b = int(hex[5:7], 16)
-    rgb = str(r) + ',' + str(g) + ',' + str(b)
-    return rgb, [r, g, b]
-
-def gradient_color(color_list, color_sum=700):
-    color_center_count = len(color_list)
-    color_sub_count = int(color_sum / (color_center_count - 1))
-    color_index_start = 0
-    color_map = []
-    for color_index_end in range(1, color_center_count):
-        color_rgb_start = Hex_to_RGB(color_list[color_index_start])[1]
-        color_rgb_end = Hex_to_RGB(color_list[color_index_end])[1]
-        r_step = (color_rgb_end[0] - color_rgb_start[0]) / color_sub_count
-        g_step = (color_rgb_end[1] - color_rgb_start[1]) / color_sub_count
-        b_step = (color_rgb_end[2] - color_rgb_start[2]) / color_sub_count
-        now_color = color_rgb_start
-        color_map.append(RGB_list_to_Hex(now_color))
-        for color_index in range(1, color_sub_count):
-            now_color = [now_color[0] + r_step, now_color[1] + g_step, now_color[2] + b_step]
-            color_map.append(RGB_list_to_Hex(now_color))
-        color_index_start = color_index_end
-    return color_map
-
-def col_sca(g,input_colors):
-    input_colors = input_colors
-    colors = gradient_color(input_colors)
-    c=[colors[int((len(colors)-1)*(i*1/(len(g)-1)))] for i in range(len(g))]
-    p=[i*1/len(g) for i in range(len(g)+1)]
-    c_l = [it for su in [[c[i]]*2 for i in range(len(g))] for it in su]
-    p_l = [it for su in [[p[i]]*2 for i in range(len(g)+1)] for it in su]
-    return [[x,y] for x,y in zip(p_l[1:len(p_l)-1],c_l )]
-
-def sc_dt_num(u,i_select):
-    data=[go.Scatter3d(x=u['UMAP1'].values, 
-                    y=u['UMAP2'].values,
-                    z=u['UMAP3'].values,
-                    mode='markers',
-                    marker=dict(size=3,
-                    color=u[i_select].values,
-                    colorscale=['#9ac9db','#c82423'],
-                    showscale=True,  
-                    opacity=0.5,
-                    colorbar=dict(title=str(i_select))))]
-    return data     
 
 #####
 def sc_dt_num(u,i_select):
@@ -87,23 +26,20 @@ def sc_dt_num(u,i_select):
                     opacity=0.5,
                     colorbar=dict(title=str(i_select))))]
     return data     
-
-def sc_dt_ct(u,i_select,g):
-    data=[go.Scatter3d(x=u['UMAP1'].values, 
-                    y=u['UMAP2'].values,
-                    z=u['UMAP3'].values,
-                    mode='markers',
-                    marker=dict(size=3,
-                    color=u[i_select].values,
-                    #colorscale=col_sca(g,['#9ac9db','#c82423']),
-                    colorbar = dict(thickness=25, title=str(i_select)),
-                    showscale=True,  
-                    opacity=0.5))]
-    return data     
+ 
 ##################################
 
-c_l=['#8ebbd9','#f08c8d','#b49dcc','#d7ab93','#8ebbd9','#f08c8d','#b49dcc','#d7ab93']
+
+    fs = st.selectbox(f_info.loc[f_i,"dis_name"],tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
+                    index=int( f_info.loc[f_i,"index"]))
+
+
+
+
+
+c_l=['#8ebbd9','#f08c8d','#b49dcc','#d7ab93']
 def sc_dt_ct(u,i_select,g_l,u_name):
+    u_name[i_select]
     grades=sorted(g_l)
     data=[]
     for i in range(len(grades)):
@@ -114,16 +50,10 @@ def sc_dt_ct(u,i_select,g_l,u_name):
                 y=df_grade['UMAP2'].values,
                 z=df_grade['UMAP3'].values,
                 mode='markers',
-                
-                marker=dict(size=3,
-                    opacity=0.75, color=c_l[i],
-                ),
-                name='Grade:'+str(grades[i])
-            )
-        )
+                marker=dict(size=3,opacity=0.75, color=c_l[i],),
+                name=ast.literal_eval(u_name.loc[i_select,"u_name"])[i]
+            ))
     return data
-
-
 
 
 

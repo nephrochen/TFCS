@@ -15,7 +15,6 @@ import ast
 from streamlit_shap import st_shap
 ##
 
-from PIL import Image
 
 from ..functions.table import mask_equal
 from ..functions.col import pdb_code_col
