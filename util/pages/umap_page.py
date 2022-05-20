@@ -102,7 +102,7 @@ def sc_dt_ct(u,i_select,g):
     return data     
 ##################################
 
-c_l=['#d2e6f0','f08c8d','b49dcc','d7ab93','#d2e6f0','f08c8d','b49dcc','d7ab93']
+c_l=['#d2e6f0','#f08c8d','#b49dcc','#d7ab93','#d2e6f0','#f08c8d','#b49dcc','#d7ab93']
 def sc_dt_ct(u,i_select,g_l):
     grades=sorted(g_l)
     data=[]
