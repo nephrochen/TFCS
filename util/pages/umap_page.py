@@ -160,9 +160,9 @@ def umap_page():
     umap = pd.read_csv("/app/tfcs/util/data/umap.csv", sep=',')
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
     colorable_columns_maps ={
-        #'SHAP': "SHAP", 
-        #'dead': "dead",
-        #'surgery': "surgery",
+        'SHAP': "SHAP", 
+        'dead': "dead",
+        'surgery': "surgery",
         "CBP_t":"CBP_t",
         "age":"age",
         "NYHA":"NYHA",
