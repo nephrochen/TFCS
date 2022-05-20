@@ -57,7 +57,7 @@ def prediction_page():
     f_input=[]
     
     left_col, right_col = st.columns(2)
-    with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=50, caption='')
+    with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=500, caption='')
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Prof. Haibo Zhang**")
