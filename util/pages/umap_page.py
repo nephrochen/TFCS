@@ -130,6 +130,7 @@ def sc_dt_ct(u,i_select,g_l):
 ##################################
 def umap_page():
     st.write("## Topological Space for ALS Subtypes using Semi-supervised Approach")
+    u_name = pd.read_csv("/app/tfcs/util/data/f_info2.csv", sep=',')
     umap = pd.read_csv("/app/tfcs/util/data/umap.csv", sep=',')
     umap_usp =pd.read_csv("/app/tfcs/util/data/umap_usp.csv", sep=',')
     colorable_columns_maps ={

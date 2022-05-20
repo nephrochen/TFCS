@@ -1,4 +1,4 @@
-,value,cat,dis_name,ts,index,
+,value,cat,dis_name,ts,index,u_name
 gender,"[0.0, 1.0]",1,Gender,1,1,"[""Female"", ""Male""]"
 height,"[83.0, 230.0]",0,Height (cm),1,180,
 weight,"[34.0, 200.0]",0,Weight (kg),1,100,
@@ -10,7 +10,7 @@ HL,"[0.0, 1.0]",1,Hyperlipidemia,1,1,"[""No"", ""Yes""]"
 COPD,"[0.0, 1.0]",1,COPD,1,1,"[""No"", ""Yes""]"
 PVD,"[0.0, 1.0]",1,Peripheral vascular disease,1,1,"[""No"", ""Yes""]"
 CVA,"[0.0, 1.0]",1,Cerebrovascular accident,1,1,"[""No"", ""Yes""]"
-NYHA,"[1.0, 2.0, 3.0, 4.0]",1,NYHA,1,1,"[""1"", ""2"", ""3"", ""4""]"
+NYHA,"[1.0, 2.0, 3.0, 4.0]",1,NYHA,1,1,"[""NYHA1"", ""NYHA2"", ""NYHA3"", ""NYHA4""]"
 ART,"[0.0, 1.0]",1,Arrhythmia,1,1,"[""No"", ""Yes""]"
 AF,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
 MI,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
@@ -26,3 +26,4 @@ la,"[0.0, 80.0]",0,,0,50,
 CBP_t,"[0.0, 447.0]",0,CPB time,1,50,
 ACC_t,"[0.0, 273.0]",0,,0,50,
 IABP,"[0.0, 1.0]",1,IABP,1,1,"[""No"", ""Yes""]"
+surgery,,,,,,"[""Value surgery"",""CABG"",""Combined surgery""]"
