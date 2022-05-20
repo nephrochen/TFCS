@@ -106,10 +106,10 @@ def prediction_page():
 
         create_st_button(link_text, link_url, st_col=st_col)
 
-
+    st.sidebar.markdown("---")
     cols= st.sidebar.columns(4)
     ps=['az','az2','fw','fw2']
-    st.sidebar.markdown("---")
+    
     for i in range(len(ps)):
         with cols[i]: st.image(Image.open('/app/tfcs/util/data/'+ps[i]+'.png'), caption='')
 
