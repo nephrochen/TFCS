@@ -119,9 +119,9 @@ def prediction_page():
     st.markdown("---")
    
     st.markdown(
-        """<style>.boxBorder {border: 10px solid #f5e893;font-size: 25px;background-color: #ff6600;}</style>
+        """<style>.boxBorder {border: 10px solid #f5e893;font-size: 25px;background-color: #f5e893;}</style>
         """, unsafe_allow_html=True) 
-    st.markdown('<div class="boxBorder"><font color="RED">Disclaimer: This predictive tool is only for research purposes</font></div>', unsafe_allow_html=True)
+    st.markdown('<div class="boxBorder"><font color="BLACK">Disclaimer: This predictive tool is only for research purposes</font></div>', unsafe_allow_html=True)
     st.write("## Model Perturbation Analysis")
 
     for j in range(4):
