@@ -24,7 +24,6 @@ from ..functions.col import pdb_code_col
 from ..functions.path import pages_str, data_str, get_file_path
 from ..functions.gui import create_st_button#, show_st_structure
 
-
 def home_page():
 
     left_col, right_col = st.columns(2)

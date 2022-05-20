@@ -21,7 +21,7 @@ from ..functions.table import mask_equal
 from ..functions.col import pdb_code_col
 from ..functions.path import pages_str, data_str, get_file_path
 from ..functions.gui import create_st_button#, show_st_structure
-
+from PIL import Image
 
 
 
@@ -105,6 +105,17 @@ def prediction_page():
             i = 0
 
         create_st_button(link_text, link_url, st_col=st_col)
+
+
+    image = Image.open('sunrise.jpg')
+    st.image(Image.open('sunrise.jpg'), caption='')
+
+    cols= st.sidebar.columns(4)
+    ps=['az','az2','fw','fw2']
+    for i in range(len(ps)):
+        with cols[i]: st.image(Image.open('/app/tfcs/util/data/'+ps[i]+'.jpg'), caption='')
+
+
 
     st.markdown("---")
     st.markdown("""<style>.big-font {font-size:100px !important;}</style>""", unsafe_allow_html=True) 
