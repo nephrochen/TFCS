@@ -40,7 +40,7 @@ def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
         CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
                         ast.literal_eval(f_info.loc[f_i,"u_name"])))
-        fs = st.selectbox(f_info.loc[f_i,"dis_name"],
+        fs = st.selectbox(f_info.loc[f_i,"dis_name"]+"dasdsad",
                         options=list(CHOICES.keys()),
                         index=int( f_info.loc[f_i,"index"]), 
                         format_func=format_func)
