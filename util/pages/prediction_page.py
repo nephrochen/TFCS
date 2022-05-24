@@ -25,26 +25,29 @@ from PIL import Image
 def format_func(option):
     return CHOICES[option]
 
-# option = st.selectbox("Select option", options=list(CHOICES.keys()), format_func=format_func)
 
-# CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
-#                   ast.literal_eval(f_info.loc[f_i,"u_name"])))
-# fs = st.selectbox(f_info.loc[f_i,"dis_name"],
-#                 options=list(CHOICES.keys()),
-#                 index=int( f_info.loc[f_i,"index"]), 
-#                 format_func=format_func)
-
-
+# def pdt_feature(f_info,f_i,):
+#         CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
+#                         ast.literal_eval(f_info.loc[f_i,"u_name"])))
+#         fs = st.selectbox(f_info.loc[f_i,"dis_name"]+"dasdsad",
+#                         options=list(CHOICES.keys()),
+#                         index=int( f_info.loc[f_i,"index"]), 
+#                         format_func=lambda x: display[x])
 
 def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
-        CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
-                        ast.literal_eval(f_info.loc[f_i,"u_name"])))
-        fs = st.selectbox(f_info.loc[f_i,"dis_name"]+"dasdsad",
-                        options=list(CHOICES.keys()),
-                        index=int( f_info.loc[f_i,"index"]), 
-                        format_func=format_func)
-                                
+        fs = st.selectbox(f_info.loc[f_i,"dis_name"],
+                          tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
+                           index=int( f_info.loc[f_i,"index"]),
+                         format_func=lambda x: tuple(ast.literal_eval(f_info.loc[f_i,"u_name"]))[x])
+                            
+
+# def pdt_feature(f_info,f_i,):
+#     if f_info.loc[f_i,"cat"]:
+#         fs = st.selectbox(f_info.loc[f_i,"dis_name"],
+#                           tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
+#                            index=int( f_info.loc[f_i,"index"]))
+                        
     else:
         min_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[0])
         max_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[1])
