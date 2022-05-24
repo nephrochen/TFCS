@@ -16,10 +16,10 @@ AF,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
 MI,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
 PCI_his,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
 cs_SG,"[0.0, 1.0]",1,,0,0,
-Crea,"[0.0, 374.0]",0,Serum creatinine (mM),1,99,
-TC,"[0.84, 10.2]",0,Serum total cholesterol (mM),1,2.3,
+Crea,"[0.0, 374.0]",0,Serum creatinine (mmol/L),1,99,
+TC,"[0.84, 10.2]",0,Serum total cholesterol (mmol/L),1,2.3,
 LDL_C,"[0.0, 5.88]",0,,0,4,
-Glu,"[1.94, 78.0]",0,blood glucose (mM),1,5,
+Glu,"[1.94, 78.0]",0,blood glucose (mmol/L),1,5,
 ef,"[20.0, 85.0]",0,Ejection friction (%),1,45,
 lvidd,"[27.0, 74.8]",0,,0,50,
 la,"[0.0, 80.0]",0,,0,50,
