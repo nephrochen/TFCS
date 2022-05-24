@@ -39,7 +39,7 @@ def pdt_feature(f_info,f_i,):
         fs = st.selectbox(f_info.loc[f_i,"dis_name"],
                           tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
                            index=int( f_info.loc[f_i,"index"]),
-                         format_func=lambda x: tuple(ast.literal_eval(f_info.loc[f_i,"u_name"]))[x])
+                         format_func=lambda x: tuple(ast.literal_eval(f_info.loc[f_i,"u_name"]))[int(x)])
                             
 
 # def pdt_feature(f_info,f_i,):
