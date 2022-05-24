@@ -86,9 +86,12 @@ def home_page():
         TFML-score database presents an analysis of 19 indicators
         map structures Individualized mortality prediction for patients. 
 
-        Details of our work are provided on *** in the pre-print manuscript.
-        We hope that researchers and physicians will use TFML-score to gain novel insights 
-        into combined valve surgery and CABG and perioperative management. 
+        In this study, we sought to develop a ML-based transfer learning risk prediction model integrating past history, 
+        preoperative and intraoperative indicators to predict perioperative death after combined heart valve surgery and CABG, 
+        by pooling several large cohorts of patients to inform model development and validation. 
+        Here, we reported ML models with high predictive power for death prediction, 
+        along with patient-level and cohort-level interpretations and discuss the use of ML as a tool to aid understanding. 
+
         """
     )
 

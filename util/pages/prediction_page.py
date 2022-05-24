@@ -22,13 +22,29 @@ from ..functions.path import pages_str, data_str, get_file_path
 from ..functions.gui import create_st_button#, show_st_structure
 from PIL import Image
 
+def format_func(option):
+    return CHOICES[option]
+
+# option = st.selectbox("Select option", options=list(CHOICES.keys()), format_func=format_func)
+
+# CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
+#                   ast.literal_eval(f_info.loc[f_i,"u_name"])))
+# fs = st.selectbox(f_info.loc[f_i,"dis_name"],
+#                 options=list(CHOICES.keys()),
+#                 index=int( f_info.loc[f_i,"index"]), 
+#                 format_func=format_func)
+
 
 
 def pdt_feature(f_info,f_i,):
     if f_info.loc[f_i,"cat"]:
-        fs = st.selectbox(f_info.loc[f_i,"dis_name"],tuple(ast.literal_eval(f_info.loc[f_i,"value"])), 
-                        index=int( f_info.loc[f_i,"index"]))
-                        
+        CHOICES =dict(zip(ast.literal_eval(f_info.loc[f_i,"value"]), 
+                        ast.literal_eval(f_info.loc[f_i,"u_name"])))
+        fs = st.selectbox(f_info.loc[f_i,"dis_name"],
+                        options=list(CHOICES.keys()),
+                        index=int( f_info.loc[f_i,"index"]), 
+                        format_func=format_func)
+                                
     else:
         min_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[0])
         max_v=int(ast.literal_eval(f_info.loc[f_i,"value"])[1])
