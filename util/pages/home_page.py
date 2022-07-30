@@ -29,7 +29,9 @@ def home_page():
     left_col, right_col = st.columns(2)
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
-    right_col.markdown("**Created by Prof. Haibo Zhang**")
+    right_col.markdown("**Created by Dr.Zhihui Zhu**")
+    right_col.markdown("**           Dr.Chenyu Li**")
+    right_col.markdown("**           Prof.Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
 
     database_link_dict = {
