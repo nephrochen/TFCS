@@ -78,8 +78,11 @@ def prediction_page():
     with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=400, caption='')
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
-    right_col.markdown("**Created by Prof. Haibo Zhang**")
+    right_col.markdown("**Created by Dr.Zhihui Zhu**")
+    right_col.markdown("**           Dr.Chenyu Li**")
+    right_col.markdown("**           Prof.Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
+
 
     database_link_dict = {
         "bioRxiv Paper": "#############",
