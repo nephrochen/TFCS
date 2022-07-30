@@ -79,8 +79,8 @@ def prediction_page():
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Dr.Zhihui Zhu**")
-    right_col.markdown("**           Dr.Chenyu Li**")
-    right_col.markdown("**           Prof.Haibo Zhang**")
+    right_col.markdown("           **Dr.Chenyu Li**")
+    right_col.markdown("           **Prof.Haibo Zhang**")
     right_col.markdown("**Beijing Anzhen Hospital**")
 
 
