@@ -70,32 +70,12 @@ def prediction_page():
     #shap_values = joblib.load('util/models/ts_shap_values.pkl') 
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     model = joblib.load('util/models/ts_new.pkl') 
-    f=[ 'gender', 'height', 'sk',
- 'weight',
-        'ART',
-
-
- 'CVA',
- 'TC',
- 'LDL_C',
- 'aspirin',
- 'Catecholamine',
- 'la',
- 'statins',
- 'NYHA',
-
-
-
- 'cs_SG',
- 'Crea','Glu',
- 'lvidd','ef',
- 'IABP',
-
- 'TR',
+    f=[ 'gender', 'height', 'sk','weight','ART','CVA','TC','LDL_C','aspirin',
+ 'Catecholamine', 'la',
+'statins',
+'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR',
  'AR',
  'AF',
-
- 
  'CBP_t']
 
 
@@ -180,7 +160,7 @@ def prediction_page():
         
     cols= st.columns(4)
     for i in range(len(cols)-1):
-        with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
+        with cols[i]: f_input.append(pdt_feature(f_info,f[i+20]))
     
 
 
