@@ -156,7 +156,7 @@ def prediction_page():
     for j in range(5):#x5columns
         cols= st.columns(5)
         for i in range(len(cols)):
-            if (i+5*j)<(len(f)-2):
+            if (i+5*j)<(20):
                 with cols[i]:f_input.append(pdt_feature(f_info,f[i+5*j]))
 
 
