@@ -26,8 +26,8 @@ la,"[0.0, 80.0]",0,la,1,50,
 CBP_t,"[0.0, 447.0]",0,CPB time (mins),1,100,
 ACC_t,"[0.0, 273.0]",0,ACC_t,0,50,
 IABP,"[0.0, 1.0]",1,IABP,1,0,"[""No"", ""Yes""]"
-AR,"[1.0, 2.0, 3.0, 4.0]",1,AR,1,1,"[""None"",""mild"", ""moderate"", ""severe""""]"
+AR,"[0.0, 1.0, 2.0, 3.0]",1,AR,1,0,"[""None"",""mild"", ""moderate"", ""severe""""]"
 aspirin,"[0.0, 1.0]",1,aspirin,1,0,"[""No"", ""Yes""]"
 Catecholamine,"[0.0, 1.0]",1,Catecholamine,1,0,"[""No"", ""Yes""]"
 statins,"[0.0, 1.0]",1,statins,1,0,"[""No"", ""Yes""]"
-TR,"[1.0, 2.0, 3.0, 4.0]",1,TR,1,1,"[""None"",""mild"", ""moderate"", ""severe""""]"
+TR,"[0.0, 1.0, 2.0, 3.0]",1,TR,1,1,"[""None"",""mild"", ""moderate"", ""severe""""]"
