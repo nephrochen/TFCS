@@ -74,8 +74,7 @@ def prediction_page():
  'weight',
         'ART',
 
- 'AR',
- 'AF',
+
  'CVA',
  'TC',
  'LDL_C',
@@ -85,7 +84,8 @@ def prediction_page():
  'statins',
  'NYHA',
  'TR',
-
+ 'AR',
+ 'AF',
  'cs_SG',
  'Crea',
  'lvidd',
