@@ -87,14 +87,16 @@ def prediction_page():
 
 
  'cs_SG',
- 'Crea',
- 'lvidd',
+ 'Crea','Glu',
+ 'lvidd','ef',
  'IABP',
+
  'TR',
  'AR',
  'AF',
- 'Glu',
- 'ef','CBP_t']
+
+ 
+ 'CBP_t']
 
 
 
