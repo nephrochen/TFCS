@@ -161,7 +161,7 @@ def prediction_page():
     st.markdown("---")
     cols= st.columns(5)
     cols[0]=f_input.append(pdt_feature(f_info,f[22]))
-
+    cols[1]=f_input.append(pdt_feature(f_info,f[22]))
 
 
     st.markdown("---")
