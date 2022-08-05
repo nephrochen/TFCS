@@ -83,14 +83,16 @@ def prediction_page():
  'la',
  'statins',
  'NYHA',
- 'TR',
- 'AR',
- 'AF',
+
+
+
  'cs_SG',
  'Crea',
  'lvidd',
  'IABP',
-
+ 'TR',
+ 'AR',
+ 'AF',
  'Glu',
  'ef','CBP_t']
 
