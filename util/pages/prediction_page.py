@@ -159,7 +159,7 @@ def prediction_page():
             if (i+5*j)<22:
                 with cols[i]:f_input.append(pdt_feature(f_info,f[i+5*j]))
     st.markdown("---")
-    left_p, mid_p , right_p = st.columns(3)
+    left_p, mid_p,right_p = st.columns(3)
     with left_p: agree = st.checkbox('你看？')
     with mid_p: f_input.append(pdt_feature(f_info,f[22]))
     #with right_p: f_input.append(pdt_feature(f_info,f[22]))
