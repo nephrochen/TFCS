@@ -159,8 +159,8 @@ def prediction_page():
             if (i+5*j)<22:
                 with cols[i]:f_input.append(pdt_feature(f_info,f[i+5*j]))
     st.markdown("---")
-
-
+    cols= st.columns(5)
+    cols[i]:f_input.append(pdt_feature(f_info,f[22]))
 
 
 
