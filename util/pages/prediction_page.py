@@ -70,8 +70,10 @@ def prediction_page():
     #shap_values = joblib.load('util/models/ts_shap_values.pkl') 
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     model = joblib.load('util/models/ts_new.pkl') 
-    f=['ART',
- 'sk',
+    f=[ 'gender', 'height', 'sk',
+ 'weight',
+        'ART',
+
  'AR',
  'AF',
  'CVA',
@@ -83,15 +85,19 @@ def prediction_page():
  'statins',
  'NYHA',
  'TR',
- 'height',
- 'weight',
+
  'cs_SG',
  'Crea',
  'lvidd',
  'IABP',
- 'gender',
+
  'Glu',
- 'ef']
+ 'ef','CBP_t']
+
+
+
+
+    
     f_input=[]
     
     left_col, right_col = st.columns(2)
