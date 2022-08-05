@@ -69,7 +69,7 @@ def prediction_page():
    
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
     f=[ 'gender', 'height', 'sk','weight','ART','CVA','TC','LDL_C','aspirin','Catecholamine', 'la','statins',
-        'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR','AR','AF','CBP_t']
+        'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR','AR','AF']#,'CBP_t'
     f_input=[]
     left_col, right_col = st.columns(2)
     with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=400, caption='')
@@ -159,5 +159,5 @@ def prediction_page():
     else:
         explainer = joblib.load('util/models/ts_k_explainer_b.pkl') 
         model = joblib.load('util/models/ts_b.pkl')  
-        st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f[:-1])), height=500, width=1000)
+        st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=1000)
         with right_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
