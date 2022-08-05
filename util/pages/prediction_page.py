@@ -66,12 +66,32 @@ def shap_values_waterfall(k_explainer,ip,f_n):
 
 
 def prediction_page():
-    explainer = joblib.load('util/models/ts_k_explainer_fs.pkl') 
-    shap_values = joblib.load('util/models/ts_shap_values.pkl') 
+    explainer = joblib.load('util/models/ts_k_explainer_new.pkl') 
+    #shap_values = joblib.load('util/models/ts_shap_values.pkl') 
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
-    model = joblib.load('util/models/ts.pkl') 
-    f=['gender','height','weight','sk','age','DM','HT','HL','COPD','PVD',
-    'CVA','NYHA','ART','Crea','TC','Glu','ef','CBP_t','IABP']
+    model = joblib.load('util/models/ts_new.pkl') 
+    f=['ART',
+ 'sk',
+ 'AR',
+ 'AF',
+ 'CVA',
+ 'TC',
+ 'LDL_C',
+ 'aspirin',
+ 'Catecholamine',
+ 'la',
+ 'statins',
+ 'NYHA',
+ 'TR',
+ 'height',
+ 'weight',
+ 'cs_SG',
+ 'Crea',
+ 'lvidd',
+ 'IABP',
+ 'gender',
+ 'Glu',
+ 'ef']
     f_input=[]
     
     left_col, right_col = st.columns(2)

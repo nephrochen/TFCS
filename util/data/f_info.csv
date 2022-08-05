@@ -3,26 +3,31 @@ gender,"[0.0, 1.0]",1,Gender,1,1,"[""Female"", ""Male""]"
 height,"[83.0, 230.0]",0,Height (cm),1,180,
 weight,"[34.0, 200.0]",0,Weight (kg),1,80,
 sk,"[0.0, 1.0]",1,Smoking status,1,1,"[""No"", ""Yes""]"
-age,"[8, 110]",0,Age (years),1,60,
-DM,"[0.0, 1.0]",1,Diabetes,1,1,"[""No"", ""Yes""]"
-HT,"[0.0, 1.0]",1,Hypertension,1,1,"[""No"", ""Yes""]"
-HL,"[0.0, 1.0]",1,Hyperlipidemia,1,1,"[""No"", ""Yes""]"
-COPD,"[0.0, 1.0]",1,COPD,1,1,"[""No"", ""Yes""]"
-PVD,"[0.0, 1.0]",1,Peripheral vascular disease,1,1,"[""No"", ""Yes""]"
+age,"[8, 110]",0,Age (years),0,60,
+DM,"[0.0, 1.0]",1,Diabetes,0,1,"[""No"", ""Yes""]"
+HT,"[0.0, 1.0]",1,Hypertension,0,1,"[""No"", ""Yes""]"
+HL,"[0.0, 1.0]",1,Hyperlipidemia,0,1,"[""No"", ""Yes""]"
+COPD,"[0.0, 1.0]",1,COPD,0,1,"[""No"", ""Yes""]"
+PVD,"[0.0, 1.0]",1,Peripheral vascular disease,0,1,"[""No"", ""Yes""]"
 CVA,"[0.0, 1.0]",1,Cerebrovascular accident,1,1,"[""No"", ""Yes""]"
 NYHA,"[1.0, 2.0, 3.0, 4.0]",1,NYHA,1,1,"[""NYHA1"", ""NYHA1"", ""NYHA2"", ""NYHA3"", ""NYHA4""]"
 ART,"[0.0, 1.0]",1,Arrhythmia,1,1,"[""No"", ""Yes""]"
-AF,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
-MI,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
-PCI_his,"[0.0, 1.0]",1,,0,0,"[""No"", ""Yes""]"
-cs_SG,"[0.0, 1.0]",1,,0,0,
+AF,"[0.0, 1.0]",1,AF,1,0,"[""No"", ""Yes""]"
+MI,"[0.0, 1.0]",1,MI,0,0,"[""No"", ""Yes""]"
+PCI_his,"[0.0, 1.0]",1,PCI_his,0,0,"[""No"", ""Yes""]"
+cs_SG,"[0.0, 1.0]",1,cs_SG,1,0,"[""No"", ""Yes""]"
 Crea,"[0.0, 374.0]",0,Serum creatinine (mmol/L),1,99,
 TC,"[0.84, 10.2]",0,Serum total cholesterol (mmol/L),1,2.3,
-LDL_C,"[0.0, 5.88]",0,,0,4,
+LDL_C,"[0.0, 5.88]",0,LDL_C,1,4,
 Glu,"[1.94, 78.0]",0,blood glucose (mmol/L),1,5,
 ef,"[20.0, 85.0]",0,Ejection friction (%),1,45,
-lvidd,"[27.0, 74.8]",0,,0,50,
-la,"[0.0, 80.0]",0,,0,50,
+lvidd,"[27.0, 74.8]",0,lvedd,1,50,
+la,"[0.0, 80.0]",0,la,1,50,
 CBP_t,"[0.0, 447.0]",0,CPB time (mins),1,100,
-ACC_t,"[0.0, 273.0]",0,,0,50,
+ACC_t,"[0.0, 273.0]",0,ACC_t,0,50,
 IABP,"[0.0, 1.0]",1,IABP,1,0,"[""No"", ""Yes""]"
+AR,"[1.0, 2.0, 3.0, 4.0]",1,AR,1,1,"[""None"",""mild"", ""moderate"", ""severe""""]"
+aspirin,"[0.0, 1.0]",1,aspirin,1,0,"[""No"", ""Yes""]"
+Catecholamine,"[0.0, 1.0]",1,Catecholamine,1,0,"[""No"", ""Yes""]"
+statins,"[0.0, 1.0]",1,statins,1,0,"[""No"", ""Yes""]"
+TR,"[1.0, 2.0, 3.0, 4.0]",1,TR,1,1,"[""None"",""mild"", ""moderate"", ""severe""""]"
