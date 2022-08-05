@@ -66,32 +66,17 @@ def shap_values_waterfall(k_explainer,ip,f_n):
 
 
 def prediction_page():
-    explainer = joblib.load('util/models/ts_k_explainer_new.pkl') 
-    #shap_values = joblib.load('util/models/ts_shap_values.pkl') 
+   
     f_info = pd.read_csv('util/data/f_info.csv',index_col=0)
-    model = joblib.load('util/models/ts_new.pkl') 
-    f=[ 'gender', 'height', 'sk','weight','ART','CVA','TC','LDL_C','aspirin',
- 'Catecholamine', 'la',
-'statins',
-'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR',
- 'AR',
- 'AF',
- 'CBP_t']
-
-
-
-
-    
+    f=[ 'gender', 'height', 'sk','weight','ART','CVA','TC','LDL_C','aspirin','Catecholamine', 'la','statins',
+        'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR','AR','AF','CBP_t']
     f_input=[]
-    
     left_col, right_col = st.columns(2)
     with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=400, caption='')
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Dr.Zhihui Zhu, Dr.Chenyu Li, Prof.Haibo Zhang**")
     #right_col.markdown("**Beijing Anzhen Hospital**")
-
-
     database_link_dict = {
         "bioRxiv Paper": "#############",
         "GitHub Page": "https://github.com/nephrochen",
@@ -142,13 +127,9 @@ def prediction_page():
     
     for i in range(len(ps)):
         with cols[i]: st.image(Image.open('/app/tfcs/util/data/'+ps[i]+'.png'), caption='')
-
-
-
     st.markdown("---")
     st.markdown("<style>.boxBorder {border: 10px solid #f5e893;font-size: 25px;background-color: #f5e893;text-align:center;}</style>", unsafe_allow_html=True) 
     st.markdown('<div class="boxBorder"><font color="BLACK"> <strong>Disclaimer: This predictive tool is only for research purposes <strong></font></div>', unsafe_allow_html=True)
-   
    
     left_p, right_p = st.columns(2)
     with left_p: st.write("## Model Perturbation Analysis")
@@ -160,16 +141,29 @@ def prediction_page():
                 with cols[i]:f_input.append(pdt_feature(f_info,f[i+5*j]))
     st.markdown("---")
     cols2 = st.columns(5)
-    with cols2[0] : agree = st.checkbox('Postoperative prediction',value=True)
+    with cols2[0] : agree = st.checkbox('Postoperative prediction')
     cols2 = st.columns(5)
     if agree: 
         with cols2[0]: f_input.append(pdt_feature(f_info,f[22]))
-    #with right_p: f_input.append(pdt_feature(f_info,f[22]))
-
-
-    #
-
     st.markdown("---")
     st.write('## Waterfall plot for predict mortality rate')
+
+
+
+    if agree: 
+        explainer = joblib.load('util/models/ts_k_explainer_a.pkl') 
+        model = joblib.load('util/models/ts_a.pkl')  
+    else:
+        explainer = joblib.load('util/models/ts_k_explainer_b.pkl') 
+        model = joblib.load('util/models/ts_b.pkl')  
     st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=1000)
     with right_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
+
+
+
+
+
+
+
+
+
