@@ -153,14 +153,14 @@ def prediction_page():
     left_p, right_p = st.columns(2)
     with left_p: st.write("## Model Perturbation Analysis")
 
-    for j in range(4):
+    for j in range(5):#x5columns
         cols= st.columns(4)
         for i in range(len(cols)):
             with cols[i]:f_input.append(pdt_feature(f_info,f[i+4*j]))
         
     cols= st.columns(4)
     for i in range(len(cols)-1):
-        with cols[i]: f_input.append(pdt_feature(f_info,f[i+20]))
+        with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
     
 
 
