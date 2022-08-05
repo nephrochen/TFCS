@@ -156,7 +156,13 @@ def prediction_page():
     for j in range(5):#x5columns
         cols= st.columns(5)
         for i in range(len(cols)):
-            with cols[i]:f_input.append(pdt_feature(f_info,f[i+4*j]))
+            with cols[i]:f_input.append(pdt_feature(f_info,f[i+5*j]))
+        
+    cols= st.columns(4)
+    for i in range(len(cols)-1):
+        with cols[i]: f_input.append(pdt_feature(f_info,f[i+16]))
+    
+
 
     st.markdown("---")
     st.write('## Waterfall plot for predict mortality rate')
