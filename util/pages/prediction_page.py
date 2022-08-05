@@ -173,7 +173,7 @@ def prediction_page():
         empty.checkbox('c', True)
  
 
- 
+    #
 
     st.markdown("---")
     st.write('## Waterfall plot for predict mortality rate')
