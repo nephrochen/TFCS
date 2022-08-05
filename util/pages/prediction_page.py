@@ -161,9 +161,9 @@ def prediction_page():
     st.markdown("---")
     cols2 = st.columns(5)
     with cols2[0] : agree = st.checkbox('Postoperative prediction')
-
+    cols2 = st.columns(5)
     if agree: 
-        with cols2[1]: f_input.append(pdt_feature(f_info,f[22]))
+        with cols2[0]: f_input.append(pdt_feature(f_info,f[22]))
     #with right_p: f_input.append(pdt_feature(f_info,f[22]))
 
 
