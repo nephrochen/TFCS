@@ -166,12 +166,6 @@ def prediction_page():
         with cols2[0]: f_input.append(pdt_feature(f_info,f[22]))
     #with right_p: f_input.append(pdt_feature(f_info,f[22]))
 
-    button = st.button('a')
-    empty = st.empty()
-    empty.checkbox('c')
-    if button:
-        empty.checkbox('c', True)
- 
 
     #
 
