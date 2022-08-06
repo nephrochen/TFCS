@@ -153,10 +153,7 @@ def prediction_page():
     if agree: 
         explainer = joblib.load('util/models/ts_k_explainer_a.pkl') 
         model = joblib.load('util/models/ts_a.pkl')  
-        print("################################")
-        print( len(f_input))
-        print("################################")
-        print(len(f))
+
 
         st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f)), height=500, width=1000)
         with right_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
@@ -170,8 +167,8 @@ def prediction_page():
         print("################################")
         print( len(f_input))
         print("################################")
-        print(len(f))
-        st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input[:-1],f[:-1])), height=500, width=1000)
+        print(len(f[:-1]))
+        st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f[:-1])), height=500, width=1000)
         with right_p: st.write('## Predict mortality rate: '+str(round( model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")
 
 
