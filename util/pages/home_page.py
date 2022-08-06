@@ -141,7 +141,7 @@ def home_page():
 
         ##### Dr.Chenyu Li
 
-        - Email: <Chenyu.Li@med.uni-muenchen.de>
+        - Email: <Chenyu.Li@med.uni-muenchen.de or Chenyu.Li@qdu.edu.cn>
         #- GitHub: *********
 
         ##### Prof.Haibo Zhang
