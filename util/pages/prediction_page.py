@@ -146,7 +146,7 @@ def prediction_page():
     if agree: 
         with cols2[0]: f_input.append(pdt_feature(f_info,f[22]))
     st.markdown("---")
-    st.write('## Waterfall plot for predict mortality rate')
+    #st.write('## Waterfall plot for predict mortality rate')
 
 
 
