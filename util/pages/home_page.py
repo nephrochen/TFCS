@@ -30,7 +30,7 @@ def home_page():
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Dr.Zhihui Zhu, Dr.Chenyu Li, Prof.Haibo Zhang**")
-    right_col.markdown("**Beijing Anzhen Hospital**")
+    right_col.markdown("**Beijing Anzhen Hospital, Capital Medical University and Ludwig-Maximilians-Universität München**")
 
     database_link_dict = {
         "bioRxiv Paper": "#############",
