@@ -159,8 +159,8 @@ def prediction_page():
         model = joblib.load('util/models/ts_b.pkl')  
         f_a=f[:-1]
 
-    #with right_p: st.write('## Predict mortality rate: '+str(round(model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")    
-    st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f_a)), height=500, width=1000)
+    with right_p: st.write('## Predict mortality rate: '+str(round(model.predict_proba([f_input])[:, 1][0]*100,2) )+"%")    
+    #st_shap(shap.plots.waterfall(shap_values_waterfall(explainer,f_input,f_a)), height=500, width=1000)
     
 
 
