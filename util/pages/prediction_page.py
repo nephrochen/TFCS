@@ -126,8 +126,8 @@ def prediction_page():
     cols= st.sidebar.columns(4)
     ps=['az','az2','fw','fw2']
     
-    for i in range(len(ps)):
-        with cols[i]: st.image(Image.open('util/data/'+ps[i]+'.png'), caption='')
+    #for i in range(len(ps)):
+    #    with cols[i]: st.image(Image.open('util/data/'+ps[i]+'.png'), caption='')
     st.markdown("---")
     st.markdown("<style>.boxBorder {border: 10px solid #f5e893;font-size: 25px;background-color: #f5e893;text-align:center;}</style>", unsafe_allow_html=True) 
     st.markdown('<div class="boxBorder"><font color="BLACK"> <strong>Disclaimer: This predictive tool is only for research purposes <strong></font></div>', unsafe_allow_html=True)
