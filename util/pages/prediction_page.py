@@ -72,7 +72,8 @@ def prediction_page():
         'NYHA','cs_SG','Crea','Glu','lvidd','ef','IABP', 'TR','AR','AF','CBP_t']
     f_input=[]
     left_col, right_col = st.columns(2)
-    with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=400, caption='')
+    #with left_col: st.image(Image.open('/app/tfcs/util/data/umap.png'),width=400, caption='')
+    with left_col: st.image(Image.open('util/data/umap.png'),width=400, caption='')
     right_col.markdown("# TFML-CV-Score")
     right_col.markdown("### A tool for predicting perioperative mortality of combined valve surgery and CABG")
     right_col.markdown("**Created by Dr.Zhihui Zhu, Dr.Chenyu Li, Prof.Haibo Zhang**")
